@@ -1,0 +1,116 @@
+extends copyright-clike
+
+snippet asref
+impl AsRef<$1> for $2 {
+    fn as_ref(&self) -> &$1 {
+        $3
+    }
+}
+endsnippet
+
+snippet default
+impl Default for $1 {
+    fn default() -> Self {
+        $1 {
+            $2
+        }
+    }
+}
+endsnippet
+
+snippet debug
+impl fmt::Debug for $1 {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "$2", $3)
+    }
+}
+endsnippet
+
+snippet display
+impl fmt::Display for $1 {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "$2", $3)
+    }
+}
+endsnippet
+
+snippet deref
+impl Deref for $1 {
+    type Target = $2;
+    fn deref(&self) -> &Self::Target {
+        $3
+    }
+}
+endsnippet
+
+snippet from
+impl From<${1:FROM}> for ${2:TO} {
+    fn from(val: $1) -> $2 {
+        $3
+    }
+}
+endsnippet
+
+snippet frome
+impl From<${1:io::Error}> for ${2:TO} {
+    fn from(e: $1) -> $2 {
+        ${3:$2::$1(e)}
+    }
+}
+endsnippet
+
+snippet future
+impl Future for $1 {
+    type Item = $2;
+    type Error = $3;
+
+    fn poll(&mut self) -> Poll<Self::Item, Self::Error> {
+        $4
+    }
+}
+endsnippet
+
+snippet stream
+impl Stream for $1 {
+    type Item = $2;
+    type Error = $3;
+
+    fn poll(&mut self) -> Poll<Option<Self::Item>, Self::Error> {
+        $4
+    }
+}
+endsnippet
+
+snippet sink
+impl Sink for $1 {
+    type SinkItem = $2;
+    type SinkError = $3;
+    fn start_send(&mut self,
+                  item: Self::SinkItem)
+                  -> StartSend<Self::SinkItem, Self::SinkError> {
+        $4
+    }
+
+    fn poll_complete(&mut self) -> Poll<(), Self::SinkError> {
+        $5
+    }
+}
+endsnippet
+
+snippet write
+write!(f, "$1"${2:, ${3:arg}})$0
+endsnippet
+
+snippet pe "public enum definition"
+#[derive(Debug)]
+pub enum ${1:Name} {
+    ${2},
+}
+endsnippet
+
+snippet en "enum definition"
+#[derive(Debug)]
+enum ${1:Name} {
+    ${2},
+}
+endsnippet

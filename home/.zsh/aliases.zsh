@@ -1,0 +1,8 @@
+alias bc="bc -l"
+alias c="clear"
+alias df="df -h"
+alias grep="grep --colour=auto"
+alias su="su -"
+alias tmux="tmux -2"
+alias vimupdate="vim +PlugUpgrade +PlugUpdate +qall"
+alias x="tar axf"

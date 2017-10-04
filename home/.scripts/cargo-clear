@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for (( i=0; i<80; i++ )); do
+    echo ""
+done

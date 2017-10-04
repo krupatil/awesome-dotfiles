@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for k in `git branch $@ | sed -r -e 's/^..//;s/ .*$//' | sort`
+do
+    line=`git show --pretty=format:"%Cgreen%cr\t%Cblue%h %Creset%<(40,trunc)%s" $k -- | head -n 1`
+    echo "$line\t$k"
+done

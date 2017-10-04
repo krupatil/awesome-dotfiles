@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+commits=$1
+shift
+command=$*
+
+for COMMIT in $(git log --reverse --format=format:%H $commits);
+do
+    git checkout ${COMMIT} ;
+    $command 1>/dev/null || { echo "Commit $COMMIT didn't build";  break; }
+done

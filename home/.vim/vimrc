@@ -1,0 +1,179 @@
+" vim: set fenc=utf-8 tw=78 sw=2 sts=2 et fdl=0 fdm=marker:
+
+" General settings {{{
+  scriptencoding utf-8
+  behave xterm           " Override brain-dead Windows visual mode
+  set nobackup           " Don't leave cruft all over the place
+  set nowritebackup      " Don't leave cruft all over the place
+  set fileformat=unix    " If not unix formatted, I want to know
+  set splitbelow         " Open new splits at bottom
+  set splitright         " Open new vsplits at the right
+  set modeline           " Enable modeline processing
+  set ignorecase         " Ignore case in searches...
+  set smartcase          " ...unless I specify a capital letter
+  set hlsearch           " Highlight search results
+  set showmatch          " Highlight matching character briefly
+
+  " When doing tab completion, give the following files lower priority.
+  set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo,.lock
+
+  " Use real encryption for files
+  set cryptmethod=blowfish
+
+  " Show relative number for all except current line, which shows absolute
+  " line number
+  if v:version >= 703
+    set number relativenumber
+  endif
+
+  " Make regexes more familiar
+    nnoremap / /\v
+    vnoremap / /\v
+    nnoremap ? ?\v
+    vnoremap ? ?\v
+
+  " Use Silver Searcher if it exists
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+  endif
+
+  " Highlight code in Markdown documents
+  let g:markdown_fenced_languages = [
+        \ 'c',
+        \ 'cpp',
+        \ 'java',
+        \ 'python',
+        \ 'rust',
+        \ 'sh',
+        \ 'verilog',
+        \ ]
+
+  " Preserve undo across program restarts
+  if has('persistent_undo')
+    set undodir=$HOME/.vim_undo
+    set undolevels=5000
+    set undofile
+  endif
+
+  " Don't be stupid in shell file syntax highlighting
+  let g:is_bash=1
+"}}}
+
+" Autocommands {{{
+  if has("autocmd")
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+      autocmd!
+
+      " For all files set 'textwidth' to 78 characters.
+      autocmd FileType * setlocal textwidth=78
+
+      " When editing a file, always jump to the last known cursor position.  Don't
+      " do it when the position is invalid or when inside an event handler
+      " (happens when dropping a file on gvim).  Also don't do it when the mark is
+      " in the first line, that is the default position when opening a file.
+      autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+    augroup END
+
+    " Highlight offensive characters
+    " (uBB is right double angle, uB7 is middle dot)
+    exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+
+    augroup HighlightOffensive
+      autocmd!
+      autocmd BufEnter  *       set list
+    augroup END
+
+  endif
+"}}}
+
+" Mappings {{{
+  " Use 'kj' instead of escape
+  inoremap kj <Esc>
+  inoremap <Esc> <nop>
+
+  " Add a new line before/after
+  nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+  nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+  " Insert one character
+  nnoremap <Space> i_<Esc>r
+
+  " Regenerate cscope database
+  nnoremap <leader>c :!cscope -b -R -q<CR>
+
+  " Edit and source vimrc, plugins
+  nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+  nnoremap <leader>sv :source $MYVIMRC<CR>
+  nnoremap <leader>ep :vsplit $HOME/.vim/plugins.vim<CR>
+
+  " Edit ftplugin for current filetype
+  nnoremap <leader>ef :exec "vsplit " . $HOME . "/.vim/ftplugin/" . &filetype . ".vim"<CR>
+
+  " Pretty format JSON file
+  nnoremap <leader>j :%!python -m json.tool<CR>
+
+  " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+  " so that you can undo CTRL-U after inserting a line break.
+  inoremap <C-U> <C-G>u<C-U>
+
+  " Add a 'yank entire buffer to system clipboard' command
+  if has('macunix')
+    nnoremap <leader>a :silent 1,$write !safe-reattach-to-user.sh pbcopy<CR>
+  else
+    nnoremap <leader>a :1,$y+<CR>
+  endif
+
+  " Add a 'yank visual selection to system clipboard' command. Note that this
+  " yanks the whole line even if only a partial visual selection is made.
+  if has('macunix')
+    vnoremap <C-c> <Esc>:<C-U>silent '<,'>write !safe-reattach-to-user.sh pbcopy<CR>
+  else
+    vnoremap <C-c> :y+<CR>
+  endif
+
+  " Ctrl-H searches for term under cursor
+  nnoremap <C-H> :silent! grep! "\b<C-R><C-W>\b"\|redraw!\|rightbelow cwindow<CR>
+  vnoremap <C-H> y:silent! grep! "\b<C-R>"\b"\|redraw!\|rightbelow cwindow<CR>
+
+  " Arrow keys move lines up or down
+  nnoremap <Down> :move .+1<CR>
+  nnoremap <Up> :move .-2<CR>
+  vnoremap <Down> :move '>+1<CR>gv
+  vnoremap <Up> :move '<-2<CR>gv
+"}}}
+
+" Spelling {{{
+  set spelllang=en_us
+
+  " Toggle spelling enabled/disabled
+  nnoremap <leader>sp :setlocal invspell<CR>
+
+  " Automatically enable spelling check on certain file types
+  augroup enable_spelling_on_files
+    autocmd!
+    autocmd FileType md,rst,text,yaml setlocal spell
+  augroup END
+"}}}
+
+" Plugins {{{
+  " Auto-install vim-plug and install plugins
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
+  endif
+
+  " Source plugins
+  call plug#begin('~/.vim/plugged')
+  source ~/.vim/plugins.vim
+  call plug#end()
+"}}}
+
+" Set colorscheme
+" Note this must be done after plugins are sourced, otherwise the colorscheme
+" plugin won't have been loaded
+colorscheme spacegray

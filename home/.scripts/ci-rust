@@ -1,0 +1,32 @@
+#!/bin/sh
+
+if [ "x$RUST_NOCAPTURE" != "x" ]; then
+    CARGO_TEST_OPTIONS="--nocapture"
+else
+    CARGO_TEST_OPTIONS=""
+fi
+
+if [ "x$RUST_BACKTRACE" != "x" ]; then
+    export RUST_BACKTRACE=1
+fi
+
+if [ "x`which rusty-tags`" != "x" ]; then
+    RUSTY_TAGS="rusty-tags vi --quiet"
+else
+    RUSTY_TAGS="true"
+fi
+
+CARGO_TEST="cargo test -- $CARGO_OPTIONS"
+CARGO_DOC="cargo doc"
+FULL_COMMAND="$CARGO_TEST && $CARGO_DOC && $RUSTY_TAGS"
+
+while sleep 1; do
+    find . \
+        -name target -prune -o \
+        -name tags -prune -o \
+        -name tags.temp -prune -o \
+        -path '*/\.*' -prune -o \
+        -name rusty-tags.vi -prune -o \
+        -type f -print |  \
+        entr -dc sh -c "$FULL_COMMAND"
+done

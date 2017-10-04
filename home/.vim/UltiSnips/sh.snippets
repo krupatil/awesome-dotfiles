@@ -1,0 +1,18 @@
+extends copyright-hash
+
+snippet strict
+# sh "strict" mode
+strict_ifs() {
+	case "\${1:-"on"}" in
+	off)
+		IFS=$' \n\t'
+		;;
+	*)
+		IFS=$'\n\t'
+		;;
+	esac
+}
+
+strict_ifs on
+set -euo pipefail
+endsnippet

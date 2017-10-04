@@ -1,0 +1,4 @@
+inoremap kj <Esc>
+nnoremap <Space> i_<Esc>r
+nnoremap <C-k> mzO<Esc>`z
+nnoremap <C-j> mzo<Esc>`z

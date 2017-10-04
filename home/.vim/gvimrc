@@ -1,0 +1,14 @@
+scriptencoding utf-8
+
+" {{{ Colorscheme settings
+colorscheme spacegray
+" }}}
+
+" Remove unneeded menu bar and toolbar. Remove tabbar and scroll bars, which
+" resize/reposition window in Windows
+set guioptions-=m
+set guioptions-=T
+set guioptions-=e
+set guioptions-=L
+
+" vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :

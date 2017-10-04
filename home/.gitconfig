@@ -1,0 +1,29 @@
+[user]
+	name = Krunal Patil 
+  email = krunal.patil@smartthings.com
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore_global
+	eol = lf
+	autocrlf = input
+[pager]
+	diff = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX
+	show = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX
+[push]
+	default = simple
+[diff]
+	tool = vimdiff
+	guitool = meld
+	compactionHeuristic = true
+[merge]
+	defaultToUpstream = true
+[color "diff-highlight"]
+	oldNormal = 9 bold
+	oldHighlight = 9 bold 52
+	newNormal = 10 bold
+	newHighlight = 10 bold 22
+[diff-so-fancy]
+	markEmptyLines = false
+[rebase]
+	autosquash = true
