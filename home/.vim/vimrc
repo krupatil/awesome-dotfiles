@@ -91,10 +91,6 @@
 "}}}
 
 " Mappings {{{
-  " Use 'kj' instead of escape
-  inoremap kj <Esc>
-  inoremap <Esc> <nop>
-
   " Add a new line before/after
   nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
   nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
@@ -138,12 +134,6 @@
   " Ctrl-H searches for term under cursor
   nnoremap <C-H> :silent! grep! "\b<C-R><C-W>\b"\|redraw!\|rightbelow cwindow<CR>
   vnoremap <C-H> y:silent! grep! "\b<C-R>"\b"\|redraw!\|rightbelow cwindow<CR>
-
-  " Arrow keys move lines up or down
-  nnoremap <Down> :move .+1<CR>
-  nnoremap <Up> :move .-2<CR>
-  vnoremap <Down> :move '>+1<CR>gv
-  vnoremap <Up> :move '<-2<CR>gv
 "}}}
 
 " Spelling {{{
