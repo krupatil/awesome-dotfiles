@@ -12,6 +12,8 @@ install()
     ln -s $DOT_FILES_REPO/home/.gitconfig ~/.gitconfig 
     ln -s $DOT_FILES_REPO/home/.gitignore_global ~/.gitignore_global
     ln -s $DOT_FILES_REPO/home/.vimrc ~/.vimrc
+    ln -s $DOT_FILES_REPO/home/.ideavimrc ~/.ideavimrc
+    ln -s $DOT_FILES_REPO/home/.viminfo ~/.viminfo
     ln -s $DOT_FILES_REPO/home/.inputrc ~/.inputrc 
     ln -s $DOT_FILES_REPO/home/.scripts/ ~/.scripts 
     ln -s $DOT_FILES_REPO/home/.tmux.conf ~/.tmux.conf
@@ -20,6 +22,7 @@ install()
     ln -s $DOT_FILES_REPO/home/.xinitrc ~/.xinitrc 
     ln -s $DOT_FILES_REPO/home/.zsh/ ~/.zsh
     ln -s $DOT_FILES_REPO/home/.zshrc ~/.zshrc
+    ln -s $DOT_FILES_REPO/home/.ssh ~/.ssh
 }
 
 remove()
@@ -36,6 +39,8 @@ remove()
     rm -rf ~/.gitconfig
     rm -rf ~/.gitignore_global
     rm -rf ~/.vimrc
+    rm -rf ~/.ideavimrc
+    rm -rf ~/.viminfo
     rm -rf ~/.inputrc
     rm -rf ~/.scripts
     rm -rf ~/.tmux.conf
@@ -44,6 +49,7 @@ remove()
     rm -rf ~/.xinitrc
     rm -rf ~/.zsh
     rm -rf ~/.zshrc
+    rm -rf ~/.ssh
 }
 
 usage()
