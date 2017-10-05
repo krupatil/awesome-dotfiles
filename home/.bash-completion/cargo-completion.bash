@@ -5,15 +5,15 @@ _cargo() {
     COMPREPLY=()
     cur=$(_get_cword "=")
     cmd="${COMP_WORDS[1]}"
-
     _expand || return 0
 
     commands=$(cargo --list|grep -v 'Installed Commands:')
 
     # these options require an argument
-    if [[ "${cmd}" == -@(A|B|C|G|g|m) ]] ; then
-        return 0
-    fi
+    # This check doesn't work for OSX
+    #if [[ "${cmd}" == -@(A|B|C|G|g|m) ]] ; then
+    #    return 0
+    #fi
 
     _split_longopt && split=true
 

@@ -6,6 +6,10 @@
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
+
+### Get os name via uname ###
+_myos="$(uname)"
+
 if [[ $- != *i* ]] ; then
     # Shell is non-interactive.  Be done now!
     return
@@ -56,9 +60,6 @@ alias c='clear'
 alias df='df -h'
 alias grep='grep --colour=auto'
 alias h='history'
-alias la='\ls --color=auto -F -T 0 -A'
-alias ll='\ls --color=auto -F -T 0 -l'
-alias ls='ls --color=auto -F -T 0'
 alias mkdir='mkdir -p'
 alias myip='curl ifconfig.me'
 alias q='exit'
@@ -66,6 +67,21 @@ alias screen='echo Use tmux you dolt'
 alias su='su -'
 alias tmux='tmux -2'
 alias vimupdate='vim +PlugUpgrade +PlugUpdate +qall'
+
+### add alias as per os using $_myos ###
+case $_myos in
+   Linux)
+       alias la='\ls --color=auto -F -T 0 -A'
+       alias ll='\ls --color=auto -F -T 0 -l'
+       alias ls='ls --color=auto -F -T 0';;
+   Darwin)
+       alias foo='/path/to/sunos/bin/foo' ;;
+   FreeBSD|OpenBSD)
+       alias foo='/path/to/bsd/bin/foo' ;;
+   SunOS)
+       alias foo='/path/to/sunos/bin/foo' ;;
+   *) ;;
+esac
 
 # Stylize PS1
 norm='\[\033[00;00m\]'
