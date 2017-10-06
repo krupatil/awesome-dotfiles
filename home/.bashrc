@@ -50,38 +50,7 @@ case ${TERM} in
 esac
 
 # Aliases
-alias -- -='cd -'
-alias .....='cd ../../../..'
-alias ....='cd ../../..'
-alias ...='cd ../..'
-alias ..='cd ..'
-alias bc="bc -l "
-alias c='clear'
-alias df='df -h'
-alias grep='grep --colour=auto'
-alias h='history'
-alias mkdir='mkdir -p'
-alias myip='curl ifconfig.me'
-alias q='exit'
-alias screen='echo Use tmux you dolt'
-alias su='su -'
-alias tmux='tmux -2'
-alias vimupdate='vim +PlugUpgrade +PlugUpdate +qall'
-
-### add alias as per os using $_myos ###
-case $_myos in
-   Linux)
-       alias la='\ls --color=auto -F -T 0 -A'
-       alias ll='\ls --color=auto -F -T 0 -l'
-       alias ls='ls --color=auto -F -T 0';;
-   Darwin)
-       alias foo='/path/to/sunos/bin/foo' ;;
-   FreeBSD|OpenBSD)
-       alias foo='/path/to/bsd/bin/foo' ;;
-   SunOS)
-       alias foo='/path/to/sunos/bin/foo' ;;
-   *) ;;
-esac
+source $HOME/.scripts/alias
 
 # Stylize PS1
 norm='\[\033[00;00m\]'
