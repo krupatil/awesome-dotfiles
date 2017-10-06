@@ -1,5 +1,7 @@
+ ### Get os name via uname ###
+ _myos="$(uname)"
 
-install()
+install_symlinks()
 {
     ln -s $DOT_FILES_REPO/home/.Xresources ~/.Xresources
     ln -s $DOT_FILES_REPO/home/.bash-completion/ ~/.bash-completion
@@ -25,7 +27,37 @@ install()
     ln -s $DOT_FILES_REPO/home/.ssh ~/.ssh
 }
 
-remove()
+install_osx_packages()
+{
+    brew install colordiff
+}
+
+install_linux_packages()
+{
+    sudo apt-get install colordiff
+}
+
+install_packages()
+{
+    ### install packages as per os using
+    case $_myos in
+       Linux)
+           install_linux_packages ;;
+       Darwin)
+           install_osx_packages ;;
+       *)
+           echo "Unsupported operating system."
+           exit -1;;
+    esac
+}
+
+install()
+{
+    install_packages
+    install_symlinks
+}
+
+remove_symlinks()
 {
     rm -rf ~/.Xresources
     rm -rf ~/.bash-completion
@@ -50,6 +82,36 @@ remove()
     rm -rf ~/.zsh
     rm -rf ~/.zshrc
     rm -rf ~/.ssh
+}
+
+remove_osx_packages()
+{
+    brew remove colordiff
+}
+
+remove_linux_packages()
+{
+    sudo apt-get remove colordiff
+}
+
+remove_packages()
+{
+    ### uninstall packages as per os using
+    case $_myos in
+       Linux)
+           remove_linux_packages ;;
+       Darwin)
+           remove_osx_packages ;;
+       *)
+           echo "Unsupported operating system."
+           exit -1;;
+    esac
+}
+
+remove()
+{
+    remove_packages
+    remove_symlinks
 }
 
 usage()

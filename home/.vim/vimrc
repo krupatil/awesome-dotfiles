@@ -13,6 +13,14 @@
   set smartcase          " ...unless I specify a capital letter
   set hlsearch           " Highlight search results
   set showmatch          " Highlight matching character briefly
+  filetype plugin indent on
+  filetype indent on
+  set tabstop=4
+  set shiftwidth=4            " numbers of spaces to (auto)indent
+  set expandtab
+  set smartindent             " smart autoindenting when starting a new line
+  set cindent                 " cindent
+  set autoindent              " always set autoindenting on
 
   " When doing tab completion, give the following files lower priority.
   set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo,.lock
@@ -57,6 +65,11 @@
 
   " Don't be stupid in shell file syntax highlighting
   let g:is_bash=1
+
+  " All general settings
+  for f in split(glob('$HOME/.vim/settings/*.vim'), '\n')
+    exec 'source' f
+  endfor
 "}}}
 
 " Autocommands {{{
@@ -134,6 +147,14 @@
   " Ctrl-H searches for term under cursor
   nnoremap <C-H> :silent! grep! "\b<C-R><C-W>\b"\|redraw!\|rightbelow cwindow<CR>
   vnoremap <C-H> y:silent! grep! "\b<C-R>"\b"\|redraw!\|rightbelow cwindow<CR>
+
+  let g:tagbar_vertical = 30
+  let g:tagbar_show_linenumbers = 2
+  let g:tagbar_autoshowtag = 1
+  nmap <C-n> :ToggleNERDTreeAndTagbar<CR>
+  nnoremap <S-n> :tabnew<CR>
+  nnoremap <C-Right> :tabn<CR>
+  nnoremap <C-Left> :tabp<CR>
 "}}}
 
 " Spelling {{{
@@ -168,3 +189,4 @@
 " Note this must be done after plugins are sourced, otherwise the colorscheme
 " plugin won't have been loaded
 colorscheme spacegray
+" colorscheme solarized

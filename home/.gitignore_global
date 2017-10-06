@@ -123,3 +123,8 @@ crossbuild/
 
 ### pyenv local
 .python-version
+
+### dotfiles
+home/.vim/autoload/plug.vim
+home/.vim/plugged/
+home/.vim_undo

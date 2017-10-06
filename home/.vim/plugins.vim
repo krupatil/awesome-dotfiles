@@ -153,6 +153,12 @@ Plug 'majutsushi/tagbar' "{{{
       \]
       \}
 "}}}
+Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/nerd-fonts'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'pseewald/nerdtree-tagbar-combined'
+Plug 'vim-scripts/winmanager'
+Plug 'wlemuel/ToggleNERDTreeAndTagbar'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive' "{{{
