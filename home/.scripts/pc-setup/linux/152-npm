@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        ### https://nodesource.com/blog/installing-node-js-tutorial-ubuntu/
+        # Adding the NodeSource APT repository for Debian-based distributions
+        # repository AND the PGP key for verifying packages
+        curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+
+        # Install Node.js from the Debian-based distributions repository
+        sudo apt-get install -y nodejs;;
+    "remove")
+        sudo apt-get remove -y nodejs;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

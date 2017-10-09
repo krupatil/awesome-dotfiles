@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install build-essential
+        sudo apt-get install cmake
+        sudo apt-get install ninja-build
+        sudo apt-get install curl
+    "remove")
+        sudo apt-get remove build-essential
+        sudo apt-get remove cmake
+        sudo apt-get remove ninja-build
+        sudo apt-get remove curl
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

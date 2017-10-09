@@ -1,0 +1,42 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install unity-tweak-tools
+
+        sudo add-apt-repository ppa:numix/ppa  
+        sudo apt-get update  
+        sudo apt-get install numix-gtk-theme numix-icon-theme-circle numix-wallpaper-*
+
+        sudo apt-add-repository ppa:tista/adapta -y  
+        sudo apt-get update  
+        sudo apt-get install adapta-gtk-theme
+
+        sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' >> /etc/apt/sources.list.d/vertex-theme.list"  
+        sudo apt-get update  
+        sudo apt-get install vertex-theme  
+
+        sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' >> /etc/apt/sources.list.d/arc-theme.list"  
+        sudo apt-get update  
+        sudo apt-get install arc-theme  
+
+        sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 90127F5B  
+        echo "deb http://downloads.sourceforge.net/project/xenlism-wildfire/repo deb/" | sudo tee -a /etc/apt/sources.list  
+        sudo apt-get update  
+        sudo apt-get install xenlism-minimalism-theme 
+        ;;
+    "remove")
+        sudo apt-get remove unity-tweak-tools
+        sudo apt-get remove numix-gtk-theme numix-icon-theme-circle numix-wallpaper-*
+        sudo apt-get remove adapta-gtk-theme
+        sudo apt-get remove vertex-theme
+        sudo apt-get remove arc-theme
+        sudo apt-get remove xenlism-minimalism-theme
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

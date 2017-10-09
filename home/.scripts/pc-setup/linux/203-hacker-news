@@ -1,0 +1,16 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        ### https://github.com/rafaelrinaldi/hn-cli
+        sudo npm install -g hn-cli
+    "remove")
+        sudo npm uninstall hn-cli
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

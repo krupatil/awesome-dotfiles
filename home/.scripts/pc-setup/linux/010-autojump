@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install autojump;;
+    "remove")
+        sudo apt-get remove autojump;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

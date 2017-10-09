@@ -22,6 +22,7 @@ antigen bundles <<EOBUNDLES
     rust
     ssh-agent
     z
+    supercrabtree/k
 
     # github plugins
     lukechilds/zsh-nvm

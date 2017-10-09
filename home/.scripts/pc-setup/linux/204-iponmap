@@ -1,0 +1,16 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        ### https://github.com/nogizhopaboroda/iponmap
+        sudo npm install -g iponmap
+    "remove")
+        sudo npm uninstall iponmap
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

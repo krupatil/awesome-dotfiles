@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install anoise;;
+    "remove")
+        sudo apt-get remove anoise;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

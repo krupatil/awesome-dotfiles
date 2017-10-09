@@ -1,0 +1,15 @@
+#!/bin/sh
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get update
+        sudo apt-get upgrade ;;
+    "remove")
+        echo "Nothing to remove";;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo add-apt-repository ppa:conky-companions/ppa
+        sudo apt-get update && sudo apt-get install conkyclementine;;
+    "remove")
+        sudo apt-get remove conkyclementine;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

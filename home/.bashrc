@@ -192,4 +192,11 @@ if which pyenv >/dev/null 2>&1; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+# Go path
+add_if_exists PATH \
+    "/usr/local/go/bin"
+
+add_if_exists GOROOT \
+    "/usr/local/go"
+
 unset add_if_exists

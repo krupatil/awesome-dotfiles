@@ -1,0 +1,16 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        ### https://github.com/schachmat/wego
+        go get -u github.com/schachmat/wego;;
+    "remove")
+        echo "Not supported!"
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

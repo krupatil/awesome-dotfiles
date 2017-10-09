@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install tree;;
+    "remove")
+        sudo apt-get remove tree;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        ### https://github.com/dustinkirkland/hollywood
+        ### http://news.softpedia.com/news/Imitate-Fake-Hollywood-Terminal-Hacking-Melodrama-with-this-Amazing-App-for-Ubuntu-467788.shtml
+        sudo apt-add-repository ppa:hollywood/ppa
+        sudo apt-get update
+        sudo apt-get install hollywood
+        sudo apt-get install byobu
+    "remove")
+        sudo apt-get remove hollywood
+        sudo apt-get remove byobu
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

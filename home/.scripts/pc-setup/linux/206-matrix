@@ -1,0 +1,25 @@
+#!/bin/sh
+
+CMD="$1"
+DOT_FILES_REPO=`git rev-parse --show-toplevel`
+CMATRIX_REPO=$DOT_FILES_REPO/home/.scripts/cmatrix
+
+case $CMD in
+    "install")
+        ### https://github.com/abishekvashok/cmatrix
+        git clone --recursive https://github.com/abishekvashok/cmatrix $CMATRIX_REPO
+        cd $CMATRIX_REPO
+        ./configure
+        make
+        sudo make install
+        cd -
+        ;;
+    "remove")
+        sudo rm -rf `which cmatrix`
+        sudo rm -rf `which cmatrix`;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

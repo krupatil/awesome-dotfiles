@@ -1,0 +1,16 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        ### http://termsaver.brunobraga.net/
+        sudo apt-get install termsaver;;
+    "remove")
+        sudo apt-get remove termsaver;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

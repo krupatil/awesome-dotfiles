@@ -1,0 +1,20 @@
+#!/bin/sh
+
+CMD="$1"
+DOT_FILES_REPO=`git rev-parse --show-toplevel`
+HIGHLIGHTER_BIN=$DOT_FILES_REPO/home/.scripts/highlighter
+
+case $CMD in
+    "install")
+        ### https://github.com/paoloantinori/hhighlighter
+        sudo curl https://github.com/paoloantinori/hhighlighter/blob/master/h.sh > $HIGHLIGHTER_BIN
+        cmod +x $HIGHLIGHTER_BIN
+        source $HIGHLIGHTER_BIN;;
+    "remove")
+        sudo rm -rf $HIGHLIGHTER_BIN;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

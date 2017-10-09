@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install ctags ;; 
+    "remove")
+        sudo apt-get remove ctags ;; 
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

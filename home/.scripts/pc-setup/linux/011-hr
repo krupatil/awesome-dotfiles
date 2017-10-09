@@ -1,0 +1,19 @@
+#!/bin/sh
+
+CMD="$1"
+DOT_FILES_REPO=`git rev-parse --show-toplevel`
+HR_BIN="$DOT_FILES_REPO/home/scripts/.hr"
+
+case $CMD in
+    "install")
+        ### https://github.com/LuRsT/hr
+        sudo curl https://raw.githubusercontent.com/LuRsT/hr/master/hr > $HR_BIN
+        cmod +x $HR_BIN;;
+    "remove")
+        sudo rm -rf $HR_BIN;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+CMD="$1"
+DOT_FILES_REPO=`git rev-parse --show-toplevel`
+GO_PACKAGE=go1.8.3.linux-amd64.tar.gz
+GO_REPO=$DOT_FILES_REPO/home/.scripts
+
+
+case $CMD in
+    "install")
+        ### https://golang.org/doc/install
+        ### https://tecadmin.net/install-go-on-ubuntu/#
+        sudo apt-get update
+        sudo apt-get -y upgrade
+        wget https://storage.googleapis.com/golang/$GO_PACKAGE -O /tmp/$GO_PACKAGE
+        tar -xvf /tmp/$GO_PACKAGE -C $GO_REPO
+        rm -rf /tmp/$GO_PACKAGE;;
+        sudo mv go /usr/local
+    "remove")
+        sudo rm -rf /usr/local/go;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

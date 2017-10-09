@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install openssh-server;;
+    "remove")
+        sudo apt-get remove openssh-server;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

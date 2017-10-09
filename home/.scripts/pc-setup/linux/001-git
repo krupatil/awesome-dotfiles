@@ -1,0 +1,14 @@
+#!/bin/sh
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install git git-core;
+    "remove")
+        sudo apt-get remove git gitcore;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install awesome awesome-extra;;
+    "remove")
+        sudo apt-get remove awesome awesome-extra;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+
