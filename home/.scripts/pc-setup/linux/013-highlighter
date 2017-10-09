@@ -1,0 +1,22 @@
+#!/bin/sh
+
+### Export build env
+. ../../../../build_env
+
+CMD="$1"
+HIGHLIGHTER_BIN=$SCRIPT_DIR/highlighter
+
+case $CMD in
+    "install")
+        ### https://github.com/paoloantinori/hhighlighter
+        sudo curl https://raw.githubusercontent.com/paoloantinori/hhighlighter/master/h.sh > $HIGHLIGHTER_BIN
+        chmod +x $HIGHLIGHTER_BIN
+        echo "source $HIGHLIGHTER_BIN" >> $MY_ENV;;
+    "remove")
+        sudo rm -rf $HIGHLIGHTER_BIN;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

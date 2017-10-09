@@ -1,13 +1,16 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
         ### https://github.com/rafaelrinaldi/hn-cli
-        sudo npm install -g hn-cli
+        sudo npm install -g hn-cli;;
     "remove")
-        sudo npm uninstall hn-cli
+        sudo npm uninstall hn-cli;;
     (*)
         exit -1;
 esac

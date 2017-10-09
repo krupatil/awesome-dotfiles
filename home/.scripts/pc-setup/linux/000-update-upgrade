@@ -1,10 +1,14 @@
 #!/bin/sh
+
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get update
-        sudo apt-get upgrade ;;
+        sudo apt-get -y update
+        sudo apt-get -y upgrade ;;
     "remove")
         echo "Nothing to remove";;
     (*)

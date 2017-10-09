@@ -1,11 +1,15 @@
 #!/bin/sh
+
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get install git git-core;
+        sudo apt-get -y install git git-core;;
     "remove")
-        sudo apt-get remove git gitcore;;
+        sudo apt-get -y remove git git-core;;
     (*)
         exit -1;
 esac

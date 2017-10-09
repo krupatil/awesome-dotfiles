@@ -52,6 +52,9 @@ esac
 # Aliases
 source $HOME/.scripts/alias
 
+# Extra functions/env
+source $HOME/.scripts/my_env
+
 # Stylize PS1
 norm='\[\033[00;00m\]'
 grn='\[\033[01;32m\]'
@@ -193,10 +196,9 @@ if which pyenv >/dev/null 2>&1; then
 fi
 
 # Go path
+export GOROOT="/usr/local/go"
 add_if_exists PATH \
     "/usr/local/go/bin"
 
-add_if_exists GOROOT \
-    "/usr/local/go"
 
 unset add_if_exists

@@ -1,13 +1,18 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
+GOPATH_LOCAL=/usr/local/go/projects
 
 case $CMD in
     "install")
         ### https://github.com/schachmat/wego
-        go get -u github.com/schachmat/wego;;
+        GOPATH=$GOPATH_LOCAL go get -u github.com/schachmat/wego
+        echo "export PATH=\$PATH:$GOPATH_LOCAL/bin" >> $MY_ENV;;
     "remove")
-        echo "Not supported!"
+        echo "Not supported!";;
     (*)
         exit -1;
 esac

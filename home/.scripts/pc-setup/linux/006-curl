@@ -1,12 +1,15 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get install curl ;; 
+        sudo apt-get -y install curl ;; 
     "remove")
-        sudo apt-get remove curl ;; 
+        sudo apt-get -y remove curl ;; 
     (*)
         exit -1;
 esac

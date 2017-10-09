@@ -1,16 +1,19 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get install conky conky-all
+        sudo apt-get -y install conky conky-all
         sudo apt-add-repository -y ppa:teejee2008/ppa
-        sudo apt update
-        sudo apt install conky-manager;;
+        sudo apt-get -y update
+        sudo apt-get -y install conky-manager;;
     "remove")
-        sudo apt-get remove conky conky-all
-        sudo apt remove conky-manager;;
+        sudo apt-get -y remove conky conky-all
+        sudo apt-get -y remove conky-manager;;
     (*)
         exit -1;
 esac

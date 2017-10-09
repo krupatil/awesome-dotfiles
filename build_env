@@ -1,0 +1,15 @@
+#!/bin/sh
+
+OS="$(uname)"
+DOT_FILES_REPO=`git rev-parse --show-toplevel`
+SCRIPT_DIR=$DOT_FILES_REPO/home/.scripts
+COMMON_SCRIPT_DIR=$SCRIPT_DIR/pc-setup/common
+LINUX_SCRIPT_DIR=$SCRIPT_DIR/pc-setup/linux
+OSX_SCRIPT_DIR=$SCRIPT_DIR/pc-setup/osx
+MY_ENV=$SCRIPT_DIR/my_env
+
+do_not_install_package()
+{
+    echo "This package is nots suppported!"
+    exit 0;
+}

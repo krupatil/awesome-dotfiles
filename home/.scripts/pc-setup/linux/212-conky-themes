@@ -1,13 +1,18 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
+
+do_not_install_package
 
 case $CMD in
     "install")
-        sudo add-apt-repository ppa:conky-companions/ppa
-        sudo apt-get update && sudo apt-get install conkyclementine;;
+        sudo -A add-apt-repository ppa:conky-companions/ppa -y
+        sudo apt-get -y update && sudo apt-get install conkyclementine;;
     "remove")
-        sudo apt-get remove conkyclementine;;
+        sudo apt-get -y remove conkyclementine;;
     (*)
         exit -1;
 esac

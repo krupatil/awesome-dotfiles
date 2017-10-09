@@ -1,12 +1,15 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get install openssh-server;;
+        sudo apt-get -y install openssh-server;;
     "remove")
-        sudo apt-get remove openssh-server;;
+        sudo apt-get -y remove openssh-server;;
     (*)
         exit -1;
 esac

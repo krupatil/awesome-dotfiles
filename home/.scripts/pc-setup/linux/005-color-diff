@@ -1,12 +1,15 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get install colordiff ;; 
+        sudo apt-get -y install colordiff ;; 
     "remove")
-        sudo apt-get remove colordiff ;; 
+        sudo apt-get -y remove colordiff ;; 
     (*)
         exit -1;
 esac

@@ -1,7 +1,9 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
-DOT_FILES_REPO=`git rev-parse --show-toplevel`
 CMATRIX_REPO=$DOT_FILES_REPO/home/.scripts/cmatrix
 
 case $CMD in

@@ -1,12 +1,15 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get install ctags ;; 
+        sudo apt-get -y install ctags ;; 
     "remove")
-        sudo apt-get remove ctags ;; 
+        sudo apt-get -y remove ctags ;; 
     (*)
         exit -1;
 esac

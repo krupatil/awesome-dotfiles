@@ -1,12 +1,15 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get install anoise;;
+        sudo apt-get -y install anoise;;
     "remove")
-        sudo apt-get remove anoise;;
+        sudo apt-get -y remove anoise;;
     (*)
         exit -1;
 esac

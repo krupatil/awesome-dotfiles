@@ -1,12 +1,15 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get install awesome awesome-extra;;
+        sudo apt-get -y install awesome awesome-extra;;
     "remove")
-        sudo apt-get remove awesome awesome-extra;;
+        sudo apt-get -y remove awesome awesome-extra;;
     (*)
         exit -1;
 esac

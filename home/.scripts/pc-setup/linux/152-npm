@@ -1,5 +1,8 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
@@ -10,9 +13,9 @@ case $CMD in
         curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
         # Install Node.js from the Debian-based distributions repository
-        sudo apt-get install -y nodejs;;
+        sudo apt-get -y install -y nodejs;;
     "remove")
-        sudo apt-get remove -y nodejs;;
+        sudo apt-get -y remove -y nodejs;;
     (*)
         exit -1;
 esac

@@ -1,30 +1,34 @@
 #!/bin/sh
+
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
-DOT_FILES_REPO=`git rev-parse --show-toplevel`
 
 install_symlinks()
 {
     ln -s $DOT_FILES_REPO/home/.Xresources ~/.Xresources
-    ln -s $DOT_FILES_REPO/home/.bash-completion/ ~/.bash-completion
+    ln -s $DOT_FILES_REPO/home/.bash-completion ~/.bash-completion
     ln -s $DOT_FILES_REPO/home/.bash_logout ~/.bash_logout
     ln -s $DOT_FILES_REPO/home/.bash_profile ~/.bash_profile
     ln -s $DOT_FILES_REPO/home/.bashrc ~/.bashrc
-    ln -s $DOT_FILES_REPO/home/.config/ ~/.config
+    ln -s $DOT_FILES_REPO/home/.config ~/.config
     ln -s $DOT_FILES_REPO/home/.dir_colors ~/.dir_colors
-    ln -s $DOT_FILES_REPO/home/.fluxbox/ ~/.fluxbox
+    ln -s $DOT_FILES_REPO/home/.fluxbox ~/.fluxbox
     ln -s $DOT_FILES_REPO/home/.gitconfig ~/.gitconfig
     ln -s $DOT_FILES_REPO/home/.gitignore_global ~/.gitignore_global
     ln -s $DOT_FILES_REPO/home/.inputrc ~/.inputrc
-    ln -s $DOT_FILES_REPO/home/.scripts/ ~/.scripts
+    ln -s $DOT_FILES_REPO/home/.scripts ~/.scripts
     ln -s $DOT_FILES_REPO/home/.tmux.conf ~/.tmux.conf
-    ln -s $DOT_FILES_REPO/home/.vim/ ~/.vim
+    ln -s $DOT_FILES_REPO/home/.vim ~/.vim
     ln -s $DOT_FILES_REPO/home/.vim/.vimrc ~/.vimrc
     ln -s $DOT_FILES_REPO/home/.ideavimrc ~/.ideavimrc
-    ln -s $DOT_FILES_REPO/home/.vim_undo/ ~/.vim_undo
+    ln -s $DOT_FILES_REPO/home/.vim_undo ~/.vim_undo
     ln -s $DOT_FILES_REPO/home/.xinitrc ~/.xinitrc
-    ln -s $DOT_FILES_REPO/home/.zsh/ ~/.zsh
+    ln -s $DOT_FILES_REPO/home/.zsh ~/.zsh
     ln -s $DOT_FILES_REPO/home/.zshrc ~/.zshrc
     ln -s $DOT_FILES_REPO/home/.ssh ~/.ssh
+    ln -s $DOT_FILES_REPO/home/.wegorc ~/.wegorc
 }
 
 remove_symlinks()
@@ -51,12 +55,13 @@ remove_symlinks()
     rm -rf ~/.zsh
     rm -rf ~/.zshrc
     rm -rf ~/.ssh
+    rm -rf ~/.wegorc
 }
 
 # Entry point for script
 case $CMD in
     "install"|"remove")
-        $CMD_symlinks;;
+        ${CMD}_symlinks;;
     (*)
         exit -1;
 esac

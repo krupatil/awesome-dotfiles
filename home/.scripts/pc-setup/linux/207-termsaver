@@ -1,13 +1,16 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
         ### http://termsaver.brunobraga.net/
-        sudo apt-get install termsaver;;
+        sudo apt-get -y install termsaver;;
     "remove")
-        sudo apt-get remove termsaver;;
+        sudo apt-get -y remove termsaver;;
     (*)
         exit -1;
 esac

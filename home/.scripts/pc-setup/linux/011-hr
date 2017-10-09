@@ -1,14 +1,17 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
-DOT_FILES_REPO=`git rev-parse --show-toplevel`
-HR_BIN="$DOT_FILES_REPO/home/scripts/.hr"
+HR_BIN="$SCRIPT_DIR/hr"
 
 case $CMD in
     "install")
         ### https://github.com/LuRsT/hr
         sudo curl https://raw.githubusercontent.com/LuRsT/hr/master/hr > $HR_BIN
-        cmod +x $HR_BIN;;
+        chmod +x $HR_BIN
+        echo "source $HR_BIN" >> $MY_ENV;;
     "remove")
         sudo rm -rf $HR_BIN;;
     (*)

@@ -1,14 +1,17 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
-DOT_FILES_REPO=`git rev-parse --show-toplevel`
 PIPES_BIN=$DOT_FILES_REPO/home/.scripts/pipes
 
 case $CMD in
     "install")
         ### https://github.com/pipeseroni/pipes.sh
-        sudo curl https://github.com/pipeseroni/pipes.sh > $PIPES_BIN
-        cmod +x $PIPES_BIN;;
+        sudo curl https://raw.githubusercontent.com/pipeseroni/pipes.sh/master/pipes.sh > $PIPES_BIN
+        chmod +x $PIPES_BIN;;
+
     "remove")
         sudo rm -rf $PIPES_BIN;;
     (*)

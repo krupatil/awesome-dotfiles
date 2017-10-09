@@ -1,12 +1,15 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get install autojump;;
+        sudo apt-get -y install autojump;;
     "remove")
-        sudo apt-get remove autojump;;
+        sudo apt-get -y remove autojump;;
     (*)
         exit -1;
 esac

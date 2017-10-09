@@ -1,13 +1,18 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
 
 case $CMD in
     "install")
         ### https://github.com/robbyrussell/oh-my-zsh
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        sudo apt-get -y install zsh
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";;
+
     "remove")
-        echo "Operation not supported!";;
+        sudo apt-get -y remove zsh
     (*)
         exit -1;
 esac

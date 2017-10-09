@@ -7,9 +7,10 @@ CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get -y install vim ;;
+        ### https://github.com/AlDanial/cloc
+        sudo apt-get -y install cloc;;
     "remove")
-        sudo apt-get -y remove vim ;;
+        sudo apt-get -y remove cloc;;
     (*)
         exit -1;
 esac

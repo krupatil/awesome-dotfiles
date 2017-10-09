@@ -1,11 +1,10 @@
-### Get os name via uname ###
-OS="$(uname)"
+#!/bin/sh
+
+### Export build env
+. ./build_env
 
 execute()
 {
-    ### Run common scripts
-    run-parts --exit-on-error --arg=$CMD $COMMON_SCRIPT_DIR;;
-
     ### Run scripts as per os
     case $OS in
        Linux)
@@ -16,24 +15,23 @@ execute()
            echo "Unsupported operating system."
            exit -1;;
     esac
+
+    ### Run common scripts
+    run-parts --exit-on-error --arg=$CMD $COMMON_SCRIPT_DIR
 }
 
 usage()
 {
-    echo "Usage: ./deploy.sh <install|remove> <path for dotfiles repo>"
+    echo "Usage: ./deploy.sh <install|remove>"
     exit
 }
 
 # Entry point for script
-if [ $# -lt 2 ]; then
+if [ $# -lt 1 ]; then
     usage
 fi
 
 CMD="$1"
-DOT_FILES_REPO="$2"
-COMMON_SCRIPT_DIR=$DOT_FILES_REPO/home/.scripts/pc-setup/common
-LINUX_SCRIPT_DIR=$DOT_FILES_REPO/home/.scripts/pc-setup/linux
-OSX_SCRIPT_DIR=$DOT_FILES_REPO/home/.scripts/pc-setup/osx
 
 case $CMD in
     "install"|"remove")

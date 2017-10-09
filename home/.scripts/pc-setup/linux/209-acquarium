@@ -1,7 +1,9 @@
 #!/bin/sh
 
+### Export build env
+. ../../../../build_env
+
 CMD="$1"
-DOT_FILES_REPO=`git rev-parse --show-toplevel`
 ACQUARIUM_BIN=$DOT_FILES_REPO/home/.scripts/acquarium
 ACQUARIUM_REPO=$DOT_FILES_REPO/home/.scripts/acquarium-repo
 
@@ -9,8 +11,9 @@ case $CMD in
     "install")
         ### https://www.cyberciti.biz/tips/linux-unix-apple-osx-terminal-ascii-aquarium.html 
         OLD_DIR=`pwd`
-        sudo apt-get install libcurses-perl
+        sudo apt-get -y install libcurses-perl
 
+        mkdir -p $ACQUARIUM_REPO
         cd $ACQUARIUM_REPO
         wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.4.tar.gz
         tar -zxvf Term-Animation-2.4.tar.gz
@@ -21,7 +24,7 @@ case $CMD in
         cd $ACQUARIUM_REPO
         wget http://www.robobunny.com/projects/asciiquarium/asciiquarium.tar.gz
         tar -zxvf asciiquarium.tar.gz
-        cd asciiquarium_1.0/
+        cd asciiquarium_1.1/
         cp asciiquarium $ACQUARIUM_BIN
         chmod +x $ACQUARIUM_BIN
 
