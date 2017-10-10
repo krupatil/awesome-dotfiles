@@ -5,7 +5,7 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*
@@ -128,3 +128,4 @@ crossbuild/
 home/.vim/autoload/plug.vim
 home/.vim/plugged/
 home/.vim_undo
+home/.scripts/my_env

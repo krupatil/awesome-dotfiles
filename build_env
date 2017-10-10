@@ -2,11 +2,13 @@
 
 OS="$(uname)"
 DOT_FILES_REPO=`git rev-parse --show-toplevel`
-SCRIPT_DIR=$DOT_FILES_REPO/home/.scripts
-COMMON_SCRIPT_DIR=$SCRIPT_DIR/pc-setup/common
-LINUX_SCRIPT_DIR=$SCRIPT_DIR/pc-setup/linux
-OSX_SCRIPT_DIR=$SCRIPT_DIR/pc-setup/osx
+HOME_DIR=$DOT_FILES_REPO/home
+SCRIPT_DIR=$HOME_DIR/.scripts
 MY_ENV=$SCRIPT_DIR/my_env
+PC_SETUP_DIR=$SCRIPT_DIR/pc-setup
+COMMON_SCRIPT_DIR=$PC_SETUP_DIR/common
+LINUX_SCRIPT_DIR=$PC_SETUP_DIR/linux
+OSX_SCRIPT_DIR=$PC_SETUP_DIR/osx
 
 do_not_install_package()
 {

@@ -1,1 +1,8 @@
 #!/bin/sh
+source /home/krupatil/dotfiles/home/.scripts/hr
+source /home/krupatil/dotfiles/home/.scripts/highlighter
+source /home/krupatil/dotfiles/home/.scripts/hr
+source /home/krupatil/dotfiles/home/.scripts/highlighter
+source /home/krupatil/dotfiles/home/.scripts/hr
+source /home/krupatil/dotfiles/home/.scripts/highlighter
+export PATH=$PATH:/usr/local/go/projects/bin

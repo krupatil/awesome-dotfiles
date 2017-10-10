@@ -1,11 +1,11 @@
 #!/bin/sh
 
 ### Export build env
-. ../../../../build_env
+. ./build_env
 
 CMD="$1"
-ACQUARIUM_BIN=$DOT_FILES_REPO/home/.scripts/acquarium
-ACQUARIUM_REPO=$DOT_FILES_REPO/home/.scripts/acquarium-repo
+ACQUARIUM_BIN=$SCRIPT_DIR/acquarium
+ACQUARIUM_REPO=$SCRIPT_DIR/acquarium-repo
 
 case $CMD in
     "install")
@@ -32,7 +32,7 @@ case $CMD in
         cd $OLD_DIR
         ;;
     "remove")
-        sudo rm -rf $ACQUARIUM_BIN
+        sudo rm -rf $ACQUARIUM_BIN;;
     (*)
         exit -1;
 esac

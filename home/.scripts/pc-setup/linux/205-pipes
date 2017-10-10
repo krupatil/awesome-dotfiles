@@ -1,10 +1,10 @@
 #!/bin/sh
 
 ### Export build env
-. ../../../../build_env
+. ./build_env
 
 CMD="$1"
-PIPES_BIN=$DOT_FILES_REPO/home/.scripts/pipes
+PIPES_BIN=$SCRIPT_DIR/pipes
 
 case $CMD in
     "install")

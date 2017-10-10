@@ -100,6 +100,7 @@ case $_myos in
       alias ls='ls --color=auto -F -T 0'
       alias l.='ls -d .* --color=auto'
       alias apt-get='sudo apt-get'
+      alias apt-list-installed='apt list --installed'
       ### Add safetry nets
       # do not delete / or prompt if deleting more than 3 files at a time
       alias rm='rm -I --preserve-root'

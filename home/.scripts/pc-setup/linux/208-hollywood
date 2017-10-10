@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### Export build env
-. ../../../../build_env
+. ./build_env
 
 CMD="$1"
 
@@ -9,7 +9,7 @@ case $CMD in
     "install")
         ### https://github.com/dustinkirkland/hollywood
         ### http://news.softpedia.com/news/Imitate-Fake-Hollywood-Terminal-Hacking-Melodrama-with-this-Amazing-App-for-Ubuntu-467788.shtml
-        sudo apt-add-repository ppa:hollywood/ppa
+        sudo -A apt-add-repository -y ppa:hollywood/ppa
         sudo apt-get -y update
         sudo apt-get -y install hollywood
         sudo apt-get -y install byobu;;

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### Export build env
-. ../../../../build_env
+. ./build_env
 
 CMD="$1"
 HIGHLIGHTER_BIN=$SCRIPT_DIR/highlighter

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### Export build env
-. ../../../../build_env
+. ./build_env
 
 CMD="$1"
 
@@ -11,13 +11,15 @@ case $CMD in
         sudo apt-get -y install automake
         sudo apt-get -y install cmake
         sudo apt-get -y install ninja-build
-        sudo apt-get -y install curl;;
+        sudo apt-get -y install curl
+        sudo apt-get -y install libncurses5-dev libncursesw5-dev;;
     "remove")
         sudo apt-get -y remove build-essential
         sudo apt-get -y remove automake
         sudo apt-get -y remove cmake
         sudo apt-get -y remove ninja-build
-        sudo apt-get -y remove curl;;
+        sudo apt-get -y remove curl
+        sudo apt-get -y remove libncurses5-dev libncursesw5-dev;;
     (*)
         exit -1;
 esac

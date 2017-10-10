@@ -1,34 +1,34 @@
 #!/bin/sh
 
 ### Export build env
-. ../../../../build_env
+. ./build_env
 
 CMD="$1"
 
 install_symlinks()
 {
-    ln -s $DOT_FILES_REPO/home/.Xresources ~/.Xresources
-    ln -s $DOT_FILES_REPO/home/.bash-completion ~/.bash-completion
-    ln -s $DOT_FILES_REPO/home/.bash_logout ~/.bash_logout
-    ln -s $DOT_FILES_REPO/home/.bash_profile ~/.bash_profile
-    ln -s $DOT_FILES_REPO/home/.bashrc ~/.bashrc
-    ln -s $DOT_FILES_REPO/home/.config ~/.config
-    ln -s $DOT_FILES_REPO/home/.dir_colors ~/.dir_colors
-    ln -s $DOT_FILES_REPO/home/.fluxbox ~/.fluxbox
-    ln -s $DOT_FILES_REPO/home/.gitconfig ~/.gitconfig
-    ln -s $DOT_FILES_REPO/home/.gitignore_global ~/.gitignore_global
-    ln -s $DOT_FILES_REPO/home/.inputrc ~/.inputrc
-    ln -s $DOT_FILES_REPO/home/.scripts ~/.scripts
-    ln -s $DOT_FILES_REPO/home/.tmux.conf ~/.tmux.conf
-    ln -s $DOT_FILES_REPO/home/.vim ~/.vim
-    ln -s $DOT_FILES_REPO/home/.vim/.vimrc ~/.vimrc
-    ln -s $DOT_FILES_REPO/home/.ideavimrc ~/.ideavimrc
-    ln -s $DOT_FILES_REPO/home/.vim_undo ~/.vim_undo
-    ln -s $DOT_FILES_REPO/home/.xinitrc ~/.xinitrc
-    ln -s $DOT_FILES_REPO/home/.zsh ~/.zsh
-    ln -s $DOT_FILES_REPO/home/.zshrc ~/.zshrc
-    ln -s $DOT_FILES_REPO/home/.ssh ~/.ssh
-    ln -s $DOT_FILES_REPO/home/.wegorc ~/.wegorc
+    ln -fs $HOME_DIR/.Xresources ~/.Xresources
+    ln -fs $HOME_DIR/.bash-completion ~/.bash-completion
+    ln -fs $HOME_DIR/.bash_logout ~/.bash_logout
+    ln -fs $HOME_DIR/.bash_profile ~/.bash_profile
+    ln -fs $HOME_DIR/.bashrc ~/.bashrc
+    ln -fs $HOME_DIR/.config ~/.config
+    ln -fs $HOME_DIR/.dir_colors ~/.dir_colors
+    ln -fs $HOME_DIR/.fluxbox ~/.fluxbox
+    ln -fs $HOME_DIR/.gitconfig ~/.gitconfig
+    ln -fs $HOME_DIR/.gitignore_global ~/.gitignore_global
+    ln -fs $HOME_DIR/.inputrc ~/.inputrc
+    ln -fs $HOME_DIR/.tmux.conf ~/.tmux.conf
+    ln -fs $HOME_DIR/.vim ~/.vim
+    ln -fs $HOME_DIR/.vim/.vimrc ~/.vimrc
+    ln -fs $HOME_DIR/.ideavimrc ~/.ideavimrc
+    ln -fs $HOME_DIR/.vim_undo ~/.vim_undo
+    ln -fs $HOME_DIR/.xinitrc ~/.xinitrc
+    ln -fs $HOME_DIR/.zsh ~/.zsh
+    ln -fs $HOME_DIR/.zshrc ~/.zshrc
+    ln -fs $HOME_DIR/.ssh ~/.ssh
+    ln -fs $HOME_DIR/.wegorc ~/.wegorc
+    ln -fs $SCRIPT_DIR ~/.scripts
 }
 
 remove_symlinks()

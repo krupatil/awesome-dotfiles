@@ -1,11 +1,11 @@
 #!/bin/sh
 
 ### Export build env
-. ../../../../build_env
+. ./build_env
 
 CMD="$1"
 GO_PACKAGE=go1.8.3.linux-amd64.tar.gz
-GO_REPO=$DOT_FILES_REPO/home/.scripts
+GO_REPO=$SCRIPT_DIR
 
 case $CMD in
     "install")

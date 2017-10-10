@@ -1,10 +1,10 @@
 #!/bin/sh
 
 ### Export build env
-. ../../../../build_env
+. ./build_env
 
 CMD="$1"
-CMATRIX_REPO=$DOT_FILES_REPO/home/.scripts/cmatrix
+CMATRIX_REPO=$SCRIPT_DIR/cmatrix
 
 case $CMD in
     "install")
@@ -15,6 +15,7 @@ case $CMD in
         make
         sudo make install
         cd -
+	rm -rf $CMATRIX_REPO
         ;;
     "remove")
         sudo rm -rf `which cmatrix`
