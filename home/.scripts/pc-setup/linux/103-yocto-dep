@@ -1,0 +1,22 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install -y gawk wget git-core diffstat unzip
+        sudo apt-get install -y texinfo gcc-multilib build-essential
+        sudo apt-get install -y u-boot-tools chrpath socat;;
+    "remove")
+        sudo apt-get remove -y gawk wget git-core diffstat unzip
+        sudo apt-get remove -y texinfo gcc-multilib build-essential
+        sudo apt-get remove -y u-boot-tools chrpath socat;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

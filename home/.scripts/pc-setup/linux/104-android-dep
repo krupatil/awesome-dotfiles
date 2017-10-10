@@ -1,0 +1,34 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install -y openjdk-8-jdk
+        sudo apt-get install -y git-core gnupg flex
+        sudo apt-get install -y bison gperf build-essential
+        sudo apt-get install -y zip curl zlib1g-dev gcc-multilib
+        sudo apt-get install -y g++-multilib libc6-dev-i386
+        sudo apt-get install -y lib32ncurses5-dev x11proto-core-dev
+        sudo apt-get install -y libx11-dev lib32z-dev ccache
+        sudo apt-get install -y libgl1-mesa-dev libxml2-utils xsltproc unzip
+        sudo apt-get install -y android-tools-adb android-tools-fastboot;;
+    "remove")
+        sudo apt-get remove -y openjdk-8-jdk
+        sudo apt-get remove -y git-core gnupg flex
+        sudo apt-get remove -y bi son gperf build-essential
+        sudo apt-get remove -y zip curl zlib1g-dev gcc-multilib
+        sudo apt-get remove -y g++-multilib libc6-dev-i386
+        sudo apt-get remove -y lib32ncurses5-dev x11proto-core-dev
+        sudo apt-get remove -y libx11-dev lib32z-dev ccache
+        sudo apt-get remove -y libgl1-mesa-dev libxml2-utils xsltproc unzip
+        sudo apt-get remove -y android-tools-adb android-tools-fastboot;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+
