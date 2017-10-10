@@ -1,0 +1,11 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+
+cat $SCRIPT_DIR/banner
+
+exit 0;
+

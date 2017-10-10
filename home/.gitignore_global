@@ -128,4 +128,9 @@ crossbuild/
 home/.vim/autoload/plug.vim
 home/.vim/plugged/
 home/.vim_undo
-home/.scripts/my_env
+home/.scripts/ack
+home/.scripts/acquarium
+home/.scripts/highlighter
+home/.scripts/hr
+home/.scripts/pipes
+
