@@ -12,14 +12,16 @@ case $CMD in
         sudo apt-get -y install cmake
         sudo apt-get -y install ninja-build
         sudo apt-get -y install curl
-        sudo apt-get -y install libncurses5-dev libncursesw5-dev;;
+        sudo apt-get -y install libncurses5-dev libncursesw5-dev
+        sudo apt-get -y install lm-sensors hddtemp;;
     "remove")
         sudo apt-get -y remove build-essential
         sudo apt-get -y remove automake
         sudo apt-get -y remove cmake
         sudo apt-get -y remove ninja-build
         sudo apt-get -y remove curl
-        sudo apt-get -y remove libncurses5-dev libncursesw5-dev;;
+        sudo apt-get -y remove libncurses5-dev libncursesw5-dev
+        sudo apt-get -y remove lm-sensors hddtemp;;
     (*)
         exit -1;
 esac

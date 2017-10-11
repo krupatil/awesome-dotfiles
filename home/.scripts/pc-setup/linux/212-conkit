@@ -1,0 +1,23 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+CONKIT_DIR=$SCRIPT_DIR/.conkit
+
+do_not_install_package
+
+case $CMD in
+    "install")
+        git clone https://github.com/ujjwal96/conkit.git $CONKIT_DIR
+        ln -sf $CONKIT_DIR/conkit.sh $SCRIPT_DIR/conkit;;
+    "remove")
+        sudo rm -rf $CONKIT_DIR
+        sudo rm -rf $SCRIPT_DIR/conkit;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+
