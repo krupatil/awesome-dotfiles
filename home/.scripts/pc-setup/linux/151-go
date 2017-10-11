@@ -16,7 +16,8 @@ case $CMD in
         wget https://storage.googleapis.com/golang/$GO_PACKAGE -O /tmp/$GO_PACKAGE
         tar -xvf /tmp/$GO_PACKAGE -C $GO_REPO
         rm -rf /tmp/$GO_PACKAGE
-        sudo mv $GO_REPO/go /usr/local;;
+        sudo mv $GO_REPO/go /usr/local
+        echo "export PATH=\$PATH:/usr/local/go/bin" >> $TEMP_BUILD_ENV;;
     "remove")
         sudo rm -rf /usr/local/go;;
     (*)

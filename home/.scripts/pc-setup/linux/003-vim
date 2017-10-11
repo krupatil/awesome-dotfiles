@@ -7,10 +7,10 @@ CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get -y install vim
-        vimupdate;;
+        sudo apt-get -y install vim ;;
     "remove")
-        sudo apt-get -y remove vim ;;
+        sudo apt-get -y remove vim
+	sudo rm -rf ~/.viminfo ;;
     (*)
         exit -1;
 esac

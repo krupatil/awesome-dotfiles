@@ -15,7 +15,8 @@ case $CMD in
         sudo apt-get -y install byobu;;
     "remove")
         sudo apt-get -y remove hollywood
-        sudo apt-get -y remove byobu;;
+        sudo apt-get -y remove byobu
+	sudo rm -rf ~/.byobu ;;
     (*)
         exit -1;
 esac

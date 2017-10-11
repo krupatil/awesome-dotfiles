@@ -9,10 +9,11 @@ case $CMD in
     "install")
         ### https://github.com/robbyrussell/oh-my-zsh
         sudo apt-get -y install zsh
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";;
-
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ;;
     "remove")
-        sudo apt-get -y remove zsh;;
+        yes | sh ~/.oh-my-zsh/tools/uninstall.sh
+        sudo apt-get -y remove zsh
+	sudo rm -rf ~/.zcompdump* ~/.zsh_history ~/.zsh-update ;;
     (*)
         exit -1;
 esac

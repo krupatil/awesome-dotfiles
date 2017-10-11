@@ -11,11 +11,11 @@ case $CMD in
         sudo apt-get -y install python-dev python-pip
         pip install --upgrade pip
         sudo pip install thefuck
-        echo "eval \$(thefuck --alias)" >> $MY_ENV;;
+        echo "eval \$(thefuck --alias)" >> $MY_ENV ;;
     "remove")
         sudo apt-get -y remove python-dev python-pip
-        sudo pip uninstall thefuck
-        ;;
+	sudo rm -rf ~/.pip
+        sudo pip uninstall thefuck ;;
     (*)
         exit -1;
 esac

@@ -5,6 +5,7 @@ DOT_FILES_REPO=`git rev-parse --show-toplevel`
 HOME_DIR=$DOT_FILES_REPO/home
 SCRIPT_DIR=$HOME_DIR/.scripts
 MY_ENV=$SCRIPT_DIR/my_env
+TEMP_BUILD_ENV=$DOT_FILES_REPO/.build_env.tmp
 PC_SETUP_DIR=$SCRIPT_DIR/pc-setup
 COMMON_SCRIPT_DIR=$PC_SETUP_DIR/common
 LINUX_SCRIPT_DIR=$PC_SETUP_DIR/linux
@@ -12,6 +13,10 @@ OSX_SCRIPT_DIR=$PC_SETUP_DIR/osx
 
 do_not_install_package()
 {
-    echo "This package is nots suppported!"
+    echo "This package is not suppported!"
     exit 0;
 }
+
+if [ -f $TEMP_BUILD_ENV ]; then
+    . $TEMP_BUILD_ENV
+fi

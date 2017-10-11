@@ -7,11 +7,16 @@ CMD="$1"
 
 install_symlinks()
 {
+    ### Take backup of factory configuration
+    cp ~/.bashrc ~/.bashrc.org
+    cp ~/.bash_profile ~/.bash_profile.org
+
+    ln -fs $HOME_DIR/.bashrc ~/.bashrc
+    ln -fs $HOME_DIR/.bash_profile ~/.bash_profile
+
     ln -fs $HOME_DIR/.Xresources ~/.Xresources
     ln -fs $HOME_DIR/.bash-completion ~/.bash-completion
     ln -fs $HOME_DIR/.bash_logout ~/.bash_logout
-    ln -fs $HOME_DIR/.bash_profile ~/.bash_profile
-    ln -fs $HOME_DIR/.bashrc ~/.bashrc
     ln -fs $HOME_DIR/.config ~/.config
     ln -fs $HOME_DIR/.dir_colors ~/.dir_colors
     ln -fs $HOME_DIR/.fluxbox ~/.fluxbox
@@ -38,7 +43,6 @@ remove_symlinks()
     rm -rf ~/.bash_logout
     rm -rf ~/.bash_profile
     rm -rf ~/.bashrc
-    rm -rf ~/.bashrc.swp
     rm -rf ~/.config
     rm -rf ~/.dir_colors
     rm -rf ~/.fluxbox

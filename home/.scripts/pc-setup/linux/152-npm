@@ -13,9 +13,10 @@ case $CMD in
         curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
         # Install Node.js from the Debian-based distributions repository
-        sudo apt-get -y install -y nodejs;;
+        sudo apt-get -y install -y nodejs ;;
     "remove")
-        sudo apt-get -y remove -y nodejs;;
+        sudo apt-get -y remove -y nodejs
+	sudo rm -rf ~/.npm ;;
     (*)
         exit -1;
 esac
