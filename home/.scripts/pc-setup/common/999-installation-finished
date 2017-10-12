@@ -19,8 +19,9 @@ case $CMD in
     "install")
         ;;
     "remove")
-        cp ~/.bash_profile.org ~/.bash_profile
-        cp ~/.bashrc.org ~/.bashrc
+        mv ~/.bash_profile.org ~/.bash_profile
+        mv ~/.bashrc.org ~/.bashrc
+        mv ~/Pictures.org ~/Pictures
         sync;;
     (*)
         exit -1;;

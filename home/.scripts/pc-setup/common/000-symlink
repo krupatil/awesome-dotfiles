@@ -8,11 +8,14 @@ CMD="$1"
 install_symlinks()
 {
     ### Take backup of factory configuration
-    cp ~/.bashrc ~/.bashrc.org
-    cp ~/.bash_profile ~/.bash_profile.org
-
+    mv ~/.bashrc ~/.bashrc.org
     ln -fs $HOME_DIR/.bashrc ~/.bashrc
+
+    mv ~/.bash_profile ~/.bash_profile.org
     ln -fs $HOME_DIR/.bash_profile ~/.bash_profile
+
+    mv ~/Pictures ~/Pictures.org
+    ln -fs $HOME_DIR/Pictures ~/Pictures
 
     ln -fs $HOME_DIR/.Xresources ~/.Xresources
     ln -fs $HOME_DIR/.bash-completion ~/.bash-completion
@@ -38,6 +41,7 @@ install_symlinks()
 
 remove_symlinks()
 {
+    rm -rf ~/Pictures
     rm -rf ~/.Xresources
     rm -rf ~/.bash-completion
     rm -rf ~/.bash_logout

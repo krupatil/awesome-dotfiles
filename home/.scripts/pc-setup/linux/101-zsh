@@ -13,7 +13,7 @@ case $CMD in
     "remove")
         yes | sh ~/.oh-my-zsh/tools/uninstall.sh
         sudo apt-get -y remove zsh
-	sudo rm -rf ~/.zcompdump* ~/.zsh_history ~/.zsh-update ;;
+	sudo rm -rf ~/.zcompdump* ~/.zsh_history ~/.zsh-update ~/.z ;;
     (*)
         exit -1;
 esac

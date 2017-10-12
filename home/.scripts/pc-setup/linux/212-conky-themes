@@ -4,15 +4,23 @@
 . ./build_env
 
 CMD="$1"
-
-do_not_install_package
+CONKY_THEMES_REPO=$SCRIPT_DIR/conky-themes
 
 case $CMD in
     "install")
-        sudo -A add-apt-repository ppa:conky-companions/ppa -y
-        sudo apt-get -y update && sudo apt-get install conkyclementine;;
+        AUREOLA_THEME_REPO=$CONKY_THEMES_REPO/Aureola
+        git clone https://github.com/erikdubois/Aureola $AUREOLA_THEME_REPO
+        yes | $AUREOLA_THEME_REPO/get-aureola-from-github-to-local-drive-v1.sh
+        sudo rm -rf $CONKY_THEMES_REPO
+
+        ### Install and run default conky-theme
+        OLD_DIR=`pwd`
+        cd ~/.aureola/gambodekuno
+        ./install-conky.sh
+        sudo rm -rf ~/.aureola
+        cd $OLD_DIR;;
     "remove")
-        sudo apt-get -y remove conkyclementine;;
+        sudo rm -rf ~/.aureola;;
     (*)
         exit -1;
 esac

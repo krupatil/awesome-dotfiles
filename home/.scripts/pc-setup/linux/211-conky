@@ -7,6 +7,7 @@ CMD="$1"
 
 case $CMD in
     "install")
+        sudo -A add-apt-repository -y ppa:vincent-c/conky
         sudo apt-get -y install conky conky-all
         sudo -A apt-add-repository -y ppa:teejee2008/ppa
         sudo apt-get -y update
