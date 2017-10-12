@@ -120,7 +120,12 @@ setopt noautopushd
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 # Source my "plugin" scripts
-source "$ZSH/aliases.zsh"
+# Aliases
+source $HOME/.scripts/alias
+
+# Extra functions/env
+source $HOME/.scripts/my_env
+
 source "$ZSH/dircolors.zsh"
 source "$ZSH/homesick.zsh"
 
@@ -129,3 +134,4 @@ source $HOME/.zsh/prune-paths.zsh
 
 # Fix https://github.com/robbyrussell/oh-my-zsh/issues/1398
 zstyle ':completion:*' matcher-list 'r:|=*' '+ r:|[._-]=* l:|=*'
+
