@@ -1,19 +1,12 @@
 #!/bin/sh
 
+
 ### NOTE: This should be the last script to execute
 
 ### Export build env
 . ./build_env
 
 CMD="$1"
-
-### Print success banner
-cat $SCRIPT_DIR/banner;
-echo "Press any key to start new terminal session..."
-echo; echo
-echo "It is advisable to close this and use new session."
-
-read dummy
 
 case $CMD in
     "install")
@@ -22,12 +15,26 @@ case $CMD in
         mv ~/.bash_profile.org ~/.bash_profile
         mv ~/.bashrc.org ~/.bashrc
         mv ~/Pictures.org ~/Pictures
-        sync;;
     (*)
         exit -1;;
 esac
 
-gnome-terminal
+### Print success banner
+sync && cat $SCRIPT_DIR/banner
+
+while true; do
+    read -p "It is recommended to reboot the PC to take changes in effect, Do you wish to reboot now(y/n)?" yn
+    case $yn in
+        [Yy]* )
+            echo "Rebooting..."
+            sudo reboot
+            break;;
+        [Nn]* )
+            gnome-terminal
+            break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 exit 0;
 
