@@ -13,6 +13,11 @@ case $CMD in
         yes | $AUREOLA_THEME_REPO/get-aureola-from-github-to-local-drive-v1.sh
         sudo rm -rf $CONKY_THEMES_REPO
 
+
+        ### https://github.com/akshendra/Serene-Conky
+        ## TODO INSTALL THIS ONE AWESOME
+        ## TAKE BACKUP OF EXISTING ONE ~/.config/conky
+
         ### Install and run default conky-theme
         OLD_DIR=`pwd`
         cd ~/.aureola/gambodekuno

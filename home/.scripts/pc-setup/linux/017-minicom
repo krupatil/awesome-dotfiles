@@ -1,0 +1,18 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get -y install minicom;;
+    "remove")
+        sudo apt-get -y remove minicom;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

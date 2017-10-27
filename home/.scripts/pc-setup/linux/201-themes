@@ -9,6 +9,10 @@ case $CMD in
     "install")
         sudo apt-get -y install unity-tweak-tool
 
+        sudo -A add-apt-repository ppa:tualatrix/ppa -y
+        sudo apt-get -y update
+        sudo apt-get -y install ubuntu-tweak
+
         sudo -A add-apt-repository ppa:numix/ppa -y
         sudo apt-get -y update
         sudo apt-get -y install numix-gtk-theme numix-icon-theme-circle numix-wallpaper-* ;;

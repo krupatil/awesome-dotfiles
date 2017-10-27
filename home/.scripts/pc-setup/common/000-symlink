@@ -17,16 +17,20 @@ install_symlinks()
     mv ~/Pictures ~/Pictures.org
     ln -fs $HOME_DIR/Pictures ~/Pictures
 
+    mv ~/.config ~/.config.org
+    ln -fs $HOME_DIR/.config ~/.config
+    cp ~/.config.org/* ~/.config/. -rf
+
     ln -fs $HOME_DIR/.Xresources ~/.Xresources
     ln -fs $HOME_DIR/.bash-completion ~/.bash-completion
-    ln -fs $HOME_DIR/.bash_logout ~/.bash_logout
-    ln -fs $HOME_DIR/.config ~/.config
+    ln -fs $HOME_DIR/.bash_logoiut ~/.bash_logout
     ln -fs $HOME_DIR/.dir_colors ~/.dir_colors
     ln -fs $HOME_DIR/.fluxbox ~/.fluxbox
     ln -fs $HOME_DIR/.gitconfig ~/.gitconfig
     ln -fs $HOME_DIR/.gitignore_global ~/.gitignore_global
     ln -fs $HOME_DIR/.inputrc ~/.inputrc
-    ln -fs $HOME_DIR/.tmux.conf ~/.tmux.conf
+    ln -fs $HOME_DIR/.tmux ~/.tmux
+    ln -fs $HOME_DIR/.tmux/tmux.conf ~/.tmux.conf
     ln -fs $HOME_DIR/.vim ~/.vim
     ln -fs $HOME_DIR/.vim/vimrc ~/.vimrc
     ln -fs $HOME_DIR/.ideavimrc ~/.ideavimrc

@@ -13,6 +13,12 @@ case $CMD in
         sudo apt-get -y install ninja-build
         sudo apt-get -y install curl
         sudo apt-get -y install libncurses5-dev libncursesw5-dev
+        sudo apt-get -y install libncurses5-dev:i386
+        sudo apt-get -y install openjdk-7-jdk
+        sudo apt-get -y install libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386
+        sudo apt-get -y install g++-multilib mingw32 tofrodos
+        sudo apt-get -y install python-markdown zlib1g-dev:i386
+        sudo apt-get -y install lzop
         sudo apt-get -y install lm-sensors hddtemp;;
     "remove")
         sudo apt-get -y remove build-essential

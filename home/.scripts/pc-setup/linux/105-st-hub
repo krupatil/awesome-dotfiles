@@ -1,0 +1,23 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        ### hub-core
+        sudo pip install pyyaml
+
+        ### Hubv2-os
+        sudo apt-get install -y device-tree-compiler;;
+    "remove")
+        sudo pip remove pyyaml
+        sudo apt-get remove device-tree-compiler;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

@@ -1,0 +1,20 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        #  https://garywoodfine.com/use-pbcopy-on-ubuntu/
+        #  Check to see if Xclip is installed if not install it
+        sudo apt-get -y install xclip;;
+    "remove")
+        sudo apt-get -y remove xclip;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

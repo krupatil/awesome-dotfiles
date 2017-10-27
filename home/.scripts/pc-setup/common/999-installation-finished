@@ -15,6 +15,7 @@ case $CMD in
         mv ~/.bash_profile.org ~/.bash_profile
         mv ~/.bashrc.org ~/.bashrc
         mv ~/Pictures.org ~/Pictures
+        mv ~/.config.org ~/.config
     (*)
         exit -1;;
 esac
