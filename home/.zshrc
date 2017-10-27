@@ -67,7 +67,7 @@ path=(
     "/usr/local/sbin"
 
     # Cargo binaries
-    "$HOME/.cargo/bin"
+    #"$HOME/.cargo/bin"
 
     # pyenv binaries
     "$HOME/.pyenv/bin"
