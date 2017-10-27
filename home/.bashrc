@@ -188,12 +188,12 @@ add_if_exists PATH \
     "$HOME/.cargo/bin"
 
 # PyEnv
-add_if_exists PATH \
-    "$HOME/.pyenv/bin"
-if which pyenv >/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
+#add_if_exists PATH \
+#    "$HOME/.pyenv/bin"
+#if which pyenv >/dev/null 2>&1; then
+#    eval "$(pyenv init -)"
+#    eval "$(pyenv virtualenv-init -)"
+#fi
 
 # Go path
 export GOROOT="/usr/local/go"
