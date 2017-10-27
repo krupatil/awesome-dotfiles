@@ -187,3 +187,7 @@ Plug 'vim-scripts/bufkill.vim' "{{{
 
 " =====[Theming]=====
 Plug 'ajh17/Spacegray.vim'
+
+
+" =====[tmux]=====
+Plug 'tmux-plugins/vim-tmux'
