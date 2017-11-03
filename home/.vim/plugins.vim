@@ -104,11 +104,11 @@ Plug 'vimwiki/vimwiki' "{{{
 Plug 'kergoth/vim-bitbake'
 Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
-Plug 'Valloric/YouCompleteMe', "{{{
-  \ { 'do': './install.py --clang-completer --racer-completer' }
-  let g:ycm_rust_src_path = $RUST_SRC_PATH
-  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"Plug 'Valloric/YouCompleteMe', "{{{
+"  \ { 'do': './install.py --clang-completer --racer-completer' }
+"  let g:ycm_rust_src_path = $RUST_SRC_PATH
+"  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 "}}}
 Plug 'vim-scripts/ebnf.vim'
 Plug 'vim-scripts/scons.vim' "{{{
@@ -128,10 +128,10 @@ let g:syntastic_python_flake8_post_args = '--ignore=E501'
 
 " =====[Coding]=====
 " UltiSnips needs Vim >= 7.4 {{{
-if v:version >= 704
-  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-    let g:UltiSnipsExpandTrigger="<tab>"
-endif "}}}
+"if v:version >= 704
+"  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+"    let g:UltiSnipsExpandTrigger="<tab>"
+"endif "}}}
 Plug 'dantler/vim-alternate'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-signify' "{{{
@@ -191,3 +191,4 @@ Plug 'ajh17/Spacegray.vim'
 
 " =====[tmux]=====
 Plug 'tmux-plugins/vim-tmux'
+Plug 'benmills/vimux'

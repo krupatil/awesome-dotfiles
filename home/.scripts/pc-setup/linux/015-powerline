@@ -1,0 +1,33 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+POWERLINE_FONTS=$SCRIPT_DIR/fonts
+
+case $CMD in
+    "install")
+        pip install powerline-status
+        pip install --user git+git://github.com/powerline/powerline
+        wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+        wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+        mv PowerlineSymbols.otf ~/.local/share/fonts/
+        fc-cache -vf ~/.local/share/fonts/
+        mkdir -p ~/.config/fontconfig/conf.d/
+        mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/;
+
+        git clone https://github.com/powerline/fonts.git --depth=1 $POWERLINE_FONTS
+        cd $POWERLINE_FONTS
+        ./install.sh
+        cd -
+        rm -rf $POWERLINE_FONTS;;
+    "remove")
+        sudo apt-get -y remove tmux
+        sudo rm -rf $HOME_DIR/.tmux-powerline;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

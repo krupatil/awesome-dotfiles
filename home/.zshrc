@@ -135,3 +135,9 @@ source $HOME/.zsh/prune-paths.zsh
 # Fix https://github.com/robbyrussell/oh-my-zsh/issues/1398
 zstyle ':completion:*' matcher-list 'r:|=*' '+ r:|[._-]=* l:|=*'
 
+
+export TERM="xterm-256color"
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get -y install tmux
+        rm -rf $HOME_DIR/.tmux-powerline
+        git clone https://github.com/erikw/tmux-powerline.git $HOME_DIR/.tmux-powerline;;
+    "remove")
+        sudo apt-get -y remove tmux
+        sudo rm -rf $HOME_DIR/.tmux-powerline;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+

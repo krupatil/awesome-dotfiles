@@ -118,7 +118,7 @@ tags.temp
 rusty-tags.vi
 
 ### CMake build directories
-build/
+# build/
 crossbuild/
 
 ### pyenv local

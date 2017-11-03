@@ -25,9 +25,15 @@ then
 fi
 
 # Workaround for Windows boxes with msys console
-case ${OS} in
+case ${_myos} in
+    Linux)
+        export TERM="xterm-256color"
+        powerline-daemon -q
+        POWERLINE_BASH_CONTINUATION=1
+        POWERLINE_BASH_SELECT=1
+        . ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh;;
     Windows*)
-        export TERM=msys
+        export TERM=msys;;
 esac
 
 # Bash won't get SIGWINCH if another process is in the foreground.
@@ -161,7 +167,7 @@ add_if_exists PATH \
 # Local binaries
 add_if_exists PATH \
     "$HOME/local/bin" \
-    "$HOME/.local/bin" \
+    "~/.local/bin" \
     "$HOME/.scripts"
 add_if_exists LD_LIBRARY_PATH \
     "$HOME/local/lib"
@@ -202,3 +208,4 @@ add_if_exists PATH \
 
 
 unset add_if_exists
+

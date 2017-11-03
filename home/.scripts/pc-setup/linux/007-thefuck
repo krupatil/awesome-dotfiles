@@ -8,14 +8,13 @@ CMD="$1"
 case $CMD in
     "install")
         sudo apt-get -y update
-        sudo apt-get -y install python-dev python-pip
-        pip install --upgrade pip
-        sudo pip install thefuck
+        sudo apt-get -y install python3 python3-dev python3-pip
+        sudo pip3 install thefuck
         echo "eval \$(thefuck --alias)" >> $MY_ENV ;;
     "remove")
-        sudo apt-get -y remove python-dev python-pip
-	sudo rm -rf ~/.pip
-        sudo pip uninstall thefuck ;;
+        sudo pip3 uninstall thefuck
+        sudo apt-get -y remove python3-dev python3-pip
+        sudo rm -rf ~/.pip;;
     (*)
         exit -1;
 esac

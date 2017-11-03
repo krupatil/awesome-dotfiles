@@ -11,10 +11,19 @@ case $CMD in
         sudo pip install pyyaml
 
         ### Hubv2-os
-        sudo apt-get install -y device-tree-compiler;;
+        sudo apt-get install -y device-tree-compiler
+
+        ### Updater
+        sudo apt-get install -y ansible;;
     "remove")
-        sudo pip remove pyyaml
-        sudo apt-get remove device-tree-compiler;;
+        ### hub-core
+        sudo pip remove -y pyyaml
+
+        ### Hubv2-os
+        sudo apt-get remove -y device-tree-compiler
+
+        ### Updater
+        sudo apt-get remove -y ansible;;
     (*)
         exit -1;
 esac
