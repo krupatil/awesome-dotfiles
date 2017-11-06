@@ -17,7 +17,7 @@ case $CMD in
         sudo apt-get -y update
         sudo apt-get -y install numix-gtk-theme numix-icon-theme-circle numix-wallpaper-* ;;
     "remove")
-        sudo apt-get -y remove unity-tweak-tools
+        sudo apt-get -y remove unity-tweak-tool
         sudo apt-get -y remove numix-gtk-theme numix-icon-theme-circle numix-wallpaper-* ;;
     (*)
         exit -1;

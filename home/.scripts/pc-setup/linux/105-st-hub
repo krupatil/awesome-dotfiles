@@ -8,7 +8,7 @@ CMD="$1"
 case $CMD in
     "install")
         ### hub-core
-        sudo pip install pyyaml
+        sudo pip3 install pyyaml
 
         ### Hubv2-os
         sudo apt-get install -y device-tree-compiler
@@ -17,7 +17,7 @@ case $CMD in
         sudo apt-get install -y ansible;;
     "remove")
         ### hub-core
-        sudo pip remove -y pyyaml
+        sudo pip3 remove -y pyyaml
 
         ### Hubv2-os
         sudo apt-get remove -y device-tree-compiler

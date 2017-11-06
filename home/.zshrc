@@ -42,7 +42,7 @@ path=(
     "$HOME/local/usr/bin"
     "$HOME/.local/bin"
     "$HOME/.scripts"
-    "$HOME/Library/python/2.7/bin"
+    "$HOME/Library/python/3.4/bin"
 
     # Ruby
     "$HOME/.gem/ruby/1.8/bin"
@@ -140,4 +140,4 @@ export TERM="xterm-256color"
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+. ~/.local/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh

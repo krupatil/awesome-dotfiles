@@ -31,7 +31,7 @@ case ${_myos} in
         powerline-daemon -q
         POWERLINE_BASH_CONTINUATION=1
         POWERLINE_BASH_SELECT=1
-        . ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh;;
+        . ~/.local/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh;;
     Windows*)
         export TERM=msys;;
 esac
