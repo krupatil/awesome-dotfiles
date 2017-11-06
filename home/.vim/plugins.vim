@@ -192,3 +192,4 @@ Plug 'ajh17/Spacegray.vim'
 " =====[tmux]=====
 Plug 'tmux-plugins/vim-tmux'
 Plug 'benmills/vimux'
+Plug 'tmux-plugins/vim-tmux-focus-events'

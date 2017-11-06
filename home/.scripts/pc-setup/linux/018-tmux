@@ -7,11 +7,18 @@ CMD="$1"
 
 case $CMD in
     "install")
-        sudo apt-get -y install tmux
+        sudo apt-get install -y libevent-dev
+        git clone https://github.com/tmux/tmux /tmp/tmux
+        cd /tmp/tmux
+        sh autogen.sh
+        ./configure
+        make all
+        sudo make install
+
         rm -rf $HOME_DIR/.tmux-powerline
         git clone https://github.com/erikw/tmux-powerline.git $HOME_DIR/.tmux-powerline;;
     "remove")
-        sudo apt-get -y remove tmux
+        sudo rm -rf /tmp/tmux
         sudo rm -rf $HOME_DIR/.tmux-powerline;;
     (*)
         exit -1;

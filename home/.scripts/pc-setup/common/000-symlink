@@ -23,7 +23,7 @@ install_symlinks()
 
     ln -fs $HOME_DIR/.Xresources ~/.Xresources
     ln -fs $HOME_DIR/.bash-completion ~/.bash-completion
-    ln -fs $HOME_DIR/.bash_logoiut ~/.bash_logout
+    ln -fs $HOME_DIR/.bash_logout ~/.bash_logout
     ln -fs $HOME_DIR/.dir_colors ~/.dir_colors
     ln -fs $HOME_DIR/.fluxbox ~/.fluxbox
     ln -fs $HOME_DIR/.gitconfig ~/.gitconfig
