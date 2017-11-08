@@ -39,6 +39,7 @@ install_symlinks()
     ln -fs $HOME_DIR/.vim_undo ~/.vim_undo
     ln -fs $HOME_DIR/.xinitrc ~/.xinitrc
     ln -fs $HOME_DIR/.zsh ~/.zsh
+    ln -fs $HOME_DIR/.zsh_logout ~/.zsh_logout
     ln -fs $HOME_DIR/.zshrc ~/.zshrc
     ln -fs $HOME_DIR/.ssh ~/.ssh
     ln -fs $HOME_DIR/.wegorc ~/.wegorc

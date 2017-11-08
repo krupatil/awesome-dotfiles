@@ -1,0 +1,19 @@
+#!/bin/sh
+
+### Export build env
+. ./build_env
+
+CMD="$1"
+
+case $CMD in
+    "install")
+        sudo apt-get install -y trash-cli;;
+    "remove")
+        sudo apt-get remove -y trash-cli;;
+    (*)
+        exit -1;
+esac
+
+exit 0;
+
+

@@ -7,10 +7,12 @@ CMD="$1"
 
 case $CMD in
     "install")
+        sudo add-apt-repository ppa:jonathonf/vim
+        sudo apt-get update -y
         sudo apt-get -y install vim ;;
     "remove")
         sudo apt-get -y remove vim
-	sudo rm -rf ~/.viminfo ;;
+        sudo rm -rf ~/.viminfo ;;
     (*)
         exit -1;
 esac

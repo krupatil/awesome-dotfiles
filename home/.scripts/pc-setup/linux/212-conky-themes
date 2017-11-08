@@ -24,6 +24,7 @@ case $CMD in
         ./install-conky.sh
         sudo rm -rf ~/.aureola
         cd $OLD_DIR;;
+        git checkout $HOME_DIR/.config/conky
     "remove")
         sudo rm -rf ~/.aureola;;
     (*)

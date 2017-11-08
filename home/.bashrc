@@ -31,7 +31,7 @@ case ${_myos} in
         powerline-daemon -q
         POWERLINE_BASH_CONTINUATION=1
         POWERLINE_BASH_SELECT=1
-        . ~/.local/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh;;
+        . ~/.local/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh;;
     Windows*)
         export TERM=msys;;
 esac
@@ -60,6 +60,9 @@ source $HOME/.scripts/alias
 
 # Extra functions/env
 source $HOME/.scripts/my_env
+
+# Start tmux session
+source $HOME/.scripts/terminal-start-tmux
 
 # Stylize PS1
 norm='\[\033[00;00m\]'

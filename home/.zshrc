@@ -42,7 +42,7 @@ path=(
     "$HOME/local/usr/bin"
     "$HOME/.local/bin"
     "$HOME/.scripts"
-    "$HOME/Library/python/3.4/bin"
+    "$HOME/Library/python/3.5/bin"
 
     # Ruby
     "$HOME/.gem/ruby/1.8/bin"
@@ -126,6 +126,9 @@ source $HOME/.scripts/alias
 # Extra functions/env
 source $HOME/.scripts/my_env
 
+# Start tmux session
+source $HOME/.scripts/terminal-start-tmux
+
 source "$ZSH/dircolors.zsh"
 source "$ZSH/homesick.zsh"
 
@@ -140,4 +143,4 @@ export TERM="xterm-256color"
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. ~/.local/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+. ~/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh

@@ -1,2 +1,6 @@
 #!/bin/sh
 
+eval $(thefuck --alias)
+source /home/krupatil/awesome-dotfiles/home/.scripts/hr
+source /home/krupatil/awesome-dotfiles/home/.scripts/highlighter
+export PATH=$PATH:/usr/local/go/projects/bin

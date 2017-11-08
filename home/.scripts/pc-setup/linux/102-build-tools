@@ -19,7 +19,10 @@ case $CMD in
         sudo apt-get -y install g++-multilib mingw32 tofrodos
         sudo apt-get -y install python-markdown zlib1g-dev:i386
         sudo apt-get -y install lzop
-        sudo apt-get -y install lm-sensors hddtemp;;
+        sudo apt-get -y install lm-sensors hddtemp
+        sudo apt-get -y install xdotool
+        # Needed by https://github.com/JamshedVesuna/vim-markdown-preview
+        pip3 install grip;;
     "remove")
         sudo apt-get -y remove build-essential
         sudo apt-get -y remove automake

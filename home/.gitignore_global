@@ -134,5 +134,7 @@ home/.scripts/acquarium
 home/.scripts/highlighter
 home/.scripts/hr
 home/.scripts/pipes
+home/.tmux-powerline
+home/.tmux/plugins/
 .build_env.tmp
 

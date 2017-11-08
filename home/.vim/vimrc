@@ -190,3 +190,14 @@
 " plugin won't have been loaded
 colorscheme spacegray
 " colorscheme solarized
+
+" Janah colorscheme
+"autocmd ColorScheme janah highlight Normal ctermbg=235
+"colorscheme janah
+"
+" Change split border
+" highlight VertSplit ctermbg=NONE
+" highlight VertSplit ctermfg=NONE
+
+" Remove ~ from vimsplit border
+hi EndOfBuffer   ctermfg=bg

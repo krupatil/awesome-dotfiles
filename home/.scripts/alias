@@ -21,7 +21,7 @@ alias fgrep='fgrep --colour=auto'
 alias mkdir='mkdir -p'
 alias myip='curl ifconfig.me'
 alias q='exit'
-alias screen='echo Use tmux you dolt'
+alias screen='echo "Use tmux you dolt"; false'
 alias su='sudo -i'
 alias root='sudo -i'
 alias h='hi'
@@ -107,7 +107,8 @@ case $_myos in
       alias apt-list-installed='apt list --installed'
       ### Add safetry nets
       # do not delete / or prompt if deleting more than 3 files at a time
-      alias rm='rm -I --preserve-root'
+      # alias rm='rm -I --preserve-root'
+      alias rm='trash-put'
       if [ $UID -ne 0 ]; then
          alias update='sudo apt-get update'
          alias upgrade='sudo apt-get upgrade'

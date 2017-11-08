@@ -19,10 +19,22 @@ Plug 'wellle/targets.vim'
 
 " =====[Tools and UIs]=====
 Plug 'vim-airline/vim-airline' "{{{
-  let g:airline_theme='dark'
+  set guifont=DroidSansMono\ Nerd\ Font\ 12
+  let g:airline_left_sep = "\uE0B4"
+  let g:airline_right_sep = "\uE0B6"
+  let g:airline_theme='murmur'
   let g:airline_left_sep=''
+  let g:airline_left_alt_sep=''
   let g:airline_right_sep=''
+  let g:airline_right_alt_sep=''
+  let g:airline_skip_empty_sections=1
+  let g:airline#extensions#whitespace#mixed_indent_algo=1
+  let g:airline#extensions#tabline#enabled=1
+  let g:airline#extensions#tabline#left_sep=' '
+  let g:airline#extensions#tabline#left_alt_sep='|'
 "}}}
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mhinz/vim-startify'
 Plug 'bling/vim-bufferline'
 Plug 'ctrlpvim/ctrlp.vim' "{{{
   let g:ctrlp_extensions = ['tag', 'mixed']
@@ -51,6 +63,10 @@ Plug 'reedes/vim-litecorrect' "{{{
 "}}}
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree' "{{{
+  let NERDTreeWinPos = "left"
+  let NERDTreeWinSize=25
+  let Tlist_WinWidth=25
+  let NERDTreeShowHidden=1
   let NERDTreeChristmasTree=1
   let NERDTreeCascadeOpenSingleChildDir=1
   let NERDTreeAutoDeleteBuffer=1
@@ -63,6 +79,21 @@ Plug 'scrooloose/nerdtree' "{{{
     \ '^.*\.egg-info$[[dir]]',
     \ ]
   nnoremap <leader>n :NERDTree<CR>
+"}}}
+Plug 'Xuyuanp/nerdtree-git-plugin' "{{{
+  let g:NERDTreeShowIgnoredStatus = 1
+  let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 "}}}
 Plug 'vim-scripts/visSum.vim'
 Plug 'vimwiki/vimwiki' "{{{
@@ -99,6 +130,10 @@ Plug 'vimwiki/vimwiki' "{{{
   nnoremap <leader>d :VimwikiIndex<CR> :VimwikiGoto Brain Dump<CR>
   nnoremap <leader>wod :VimwikiIndex<CR> :VimwikiGoto work/Brain Dump<CR>
 "}}}
+Plug 'JamshedVesuna/vim-markdown-preview' "{{{
+  let vim_markdown_preview_github=1
+"}}}
+Plug 'mhinz/vim-janah'
 
 " =====[Syntax/Indenting]=====
 Plug 'kergoth/vim-bitbake'

@@ -4,7 +4,8 @@
 . ./build_env
 
 CMD="$1"
-POWERLINE_FONTS=$SCRIPT_DIR/fonts
+POWERLINE_FONTS_REPO=$SCRIPT_DIR/fonts
+NERD_FONT_REPO=$SCRIPT_DIR/nerd-fonts
 
 case $CMD in
     "install")
@@ -12,19 +13,24 @@ case $CMD in
         pip3 install --user git+git://github.com/powerline/powerline
         wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
         wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-        mv $DOT_FILES_REPO/PowerlineSymbols.otf ~/.local/share/fonts/
+        sudo mv $DOT_FILES_REPO/PowerlineSymbols.otf ~/.local/share/fonts/
         fc-cache -vf ~/.local/share/fonts/
         mkdir -p ~/.config/fontconfig/conf.d/
         mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/;
 
-        git clone https://github.com/powerline/fonts.git --depth=1 $POWERLINE_FONTS
-        cd $POWERLINE_FONTS
+        git clone --recursive https://github.com/powerline/fonts.git $POWERLINE_FONTS_REPO
+        cd $POWERLINE_FONTS_REPO
         ./install.sh
         cd -
-        rm -rf $POWERLINE_FONTS;;
+        rm -rf $POWERLINE_FONTS_REPO
+
+        git clone --recursive https://github.com/ryanoasis/nerd-fonts $NERD_FONT_REPO
+        cd $NERD_FONT_REPO
+        ./install.sh
+        cd -
+        rm -rf $NERD_FONT_REPO;;
     "remove")
-        sudo apt-get -y remove tmux
-        sudo rm -rf $HOME_DIR/.tmux-powerline;;
+        ;;
     (*)
         exit -1;
 esac
