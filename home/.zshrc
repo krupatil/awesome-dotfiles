@@ -138,8 +138,10 @@ source $HOME/.zsh/prune-paths.zsh
 # Fix https://github.com/robbyrussell/oh-my-zsh/issues/1398
 zstyle ':completion:*' matcher-list 'r:|=*' '+ r:|[._-]=* l:|=*'
 
-
-export TERM="xterm-256color"
+# for VIM and TMUX
+if [ "$TERM" = "xterm" ]; then
+    export TERM=xterm-256color
+fi
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1

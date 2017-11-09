@@ -914,28 +914,30 @@ end
 
 	-- time and date ------------------------------------------ time and date
 	
-	local hour = conky_parse('${time %H}');
+	local hour = conky_parse('${time %I}');
 	local minute = conky_parse('${time %M}');
-	--local part = conky_parse('${time %p}');
+	local part = conky_parse('${time %p}');
 	local day = conky_parse('${time %d}');
 	local month = conky_parse('${time %B}');
 	local year = conky_parse('${time %G}');
 
 	-- time
 	set_color(1,1);
-	cairo_select_font_face(cr, "Feena Casual", 0,0.9);
+	cairo_select_font_face(cr, "Feena Casual", 0,1);
+	--cairo_select_font_face(cr, "Familian Elder", 0,1);
 	cairo_set_font_size(cr,height/8);
-	--text = hour..":"..minute..part;
-	text = hour..":"..minute;
+	text = hour..":"..minute.." "..part;
+	--text = hour..":"..minute;
 	cairo_text_extents(cr,text,extents)
-	cairo_move_to(cr, centerx-10 - extents.width/2,  height/6);
+	cairo_move_to(cr, centerx-10 - extents.width/2,  height/8);
 	cairo_show_text(cr, text);
-	local time_height = height/5;
+	local time_height = height/6;
 
 	-- date
 	set_color(1,0.6);
-	item_font_size = height/15;
+	item_font_size = height/17;
 	cairo_select_font_face(cr, "Knife Fight Ballet",0,0);
+	--cairo_select_font_face(cr, "Arial",0,0);
 	cairo_set_font_size(cr, item_font_size)
 	text = day.. "  "..month.."  "..year;
 	cairo_text_extents(cr,text,extents)
@@ -992,6 +994,16 @@ end
 	text = "SPOTIFY";
 	cairo_text_extents(cr, text, extents)
 	cairo_move_to(cr, item_centerx - extents.width/2, item_centery - item_radius - 10);
+	cairo_show_text(cr, text);
+
+	-- Krunal Patil
+	set_color(1,0.6);
+	item_font_size = height/12;
+	cairo_select_font_face(cr, "Knife Fight Ballet",0,0);
+	cairo_set_font_size(cr, item_font_size)
+	text = "Krunal Patil"
+	cairo_text_extents(cr,text,extents)
+	cairo_move_to(cr, centerx - extents.width/2,  height/1.15);
 	cairo_show_text(cr, text);
 
 
@@ -1239,16 +1251,6 @@ end
 		cairo_show_text(cr,month_recieved.."iB");
 		cairo_move_to(cr,item_endx + width/15 ,item_endy+item_font_size*5+5);
 		cairo_show_text(cr,total_recieved.."iB");
-
-
-	set_color(1,0.6);
-	item_font_size = height/12;
-	cairo_select_font_face(cr, "Knife Fight Ballet",0,0);
-	cairo_set_font_size(cr, item_font_size)
-	text = "Krunal Patil";
-	cairo_text_extents(cr,text,extents)
-	cairo_move_to(cr, centerx - extents.width/2,  height-120);
-	cairo_show_text(cr, text);
 	end
 
 	-- destroying the cairo surface

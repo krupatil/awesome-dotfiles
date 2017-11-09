@@ -23,8 +23,10 @@ case $CMD in
         cd ~/.aureola/gambodekuno
         ./install-conky.sh
         sudo rm -rf ~/.aureola
-        cd $OLD_DIR;;
+        cd $OLD_DIR
         git checkout $HOME_DIR/.config/conky
+        echo "Install this fonts: https://fonts2u.com/knife-fight-ballet-regular.font"
+        read;;
     "remove")
         sudo rm -rf ~/.aureola;;
     (*)
