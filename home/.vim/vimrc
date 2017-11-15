@@ -15,8 +15,8 @@
   set showmatch          " Highlight matching character briefly
   filetype plugin indent on
   filetype indent on
-  set tabstop=4
-  set shiftwidth=4            " numbers of spaces to (auto)indent
+  set tabstop=2
+  set shiftwidth=2            " numbers of spaces to (auto)indent
   set expandtab
   set smartindent             " smart autoindenting when starting a new line
   set cindent                 " cindent

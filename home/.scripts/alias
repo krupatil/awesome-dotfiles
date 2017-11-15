@@ -163,7 +163,8 @@ fi
 
 ### Generic git
 alias git_authors='git-authors'
-alias gitl='git log'
+alias gitlog='git log --decorate --graph --abbrev-commit --date=relative'
+alias gitcommit='git commit -s'
 alias gits='git status'
 
 ### SmartThings git related
@@ -190,7 +191,6 @@ alias gith_clone_hub-scripts='git clone --recursive https://github.com/PhysicalG
 alias gitl_clone_hub-core='git clone --recursive https://git.vandevlab.com/iot-hub/hub-core'
 alias gitl_clone_hub-ember='git clone --recursive https://git.vandevlab.com/iot-hub/hub-ember'
 alias gitl_clone_hub-factory-reset-utils='git clone --recursive https://git.vandevlab.com/iot-hub/hub-factory-reset-utils'
-
 
 ### Misc alias 
 alias weather='wego'
