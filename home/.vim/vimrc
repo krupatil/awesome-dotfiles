@@ -201,3 +201,7 @@ colorscheme spacegray
 
 " Remove ~ from vimsplit border
 hi EndOfBuffer   ctermfg=bg
+
+set tabstop=2                                                                                                                                       
+set shiftwidth=2            " numbers of spaces to (auto)indent                                                                                     
+set expandtab                                                 

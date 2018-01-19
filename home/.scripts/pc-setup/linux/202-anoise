@@ -7,6 +7,8 @@ CMD="$1"
 
 case $CMD in
     "install")
+        sudo add-apt-repository ppa:costales/anoise
+        sudo apt-get update
         sudo apt-get -y install anoise;;
     "remove")
         sudo apt-get -y remove anoise;;

@@ -7,6 +7,7 @@
 	excludesfile = ~/.gitignore_global
 	eol = lf
 	autocrlf = input
+	filemode = false
 [pager]
 	diff = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX
 	show = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX

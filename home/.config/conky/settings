@@ -1,7 +1,7 @@
 
 # dimensions  1366x748
-WIDTH = 1366;
-HEIGHT = 748;
+WIDTH  = 1366;
+HEIGHT =  748;
 
 # network eth0 or wlan0
 NETWORK = enp0s5;
