@@ -29,4 +29,4 @@
 [rebase]
 	autosquash = true
 [credential]
-  helper = cache --timeout=31536000
+	helper = cache --timeout=31536000
