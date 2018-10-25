@@ -20,6 +20,13 @@ else
     setlocal shiftwidth=4
 endif
 
+
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal softtabstop=4
+setlocal textwidth=80
+setlocal noexpandtab
+
 " Match and highlight overlength lines
 highlight OverLength ctermfg=white ctermbg=darkgray guifg=white guibg=darkgrey
 if exists('b:OverLength')

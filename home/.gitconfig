@@ -14,11 +14,12 @@
 [push]
 	default = simple
 [diff]
-	tool = vimdiff
+	tool = bc
 	guitool = meld
 	compactionHeuristic = true
 [merge]
 	defaultToUpstream = true
+	tool = vimdiff
 [color "diff-highlight"]
 	oldNormal = 9 bold
 	oldHighlight = 9 bold 52
@@ -30,3 +31,10 @@
 	autosquash = true
 [credential]
 	helper = cache --timeout=31536000
+[difftool]
+	prompt = false
+	bc3 = trustExitCode
+	bc = trustExitCode
+[mergetool]
+	bc3 = trustExitCode
+	bc = trustExitCode

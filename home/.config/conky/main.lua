@@ -106,7 +106,7 @@ function conky_main(  )
 
 	-- few co-ordinates
 	local centerx = width/2;
-	local centery = height/2;
+	local centery = height/2 + 40;
 
 	-- getting the path of the conky
 	local pathway = script_path()
@@ -121,7 +121,7 @@ function conky_main(  )
 
 	-- the centered photo ------------------------------------------- the centered image -------------------------------------------------------
 
-	local face_radius = 40;
+	local face_radius = 45;
 
 	-- image
 	local ir = cairo_create(cs);
@@ -929,7 +929,7 @@ end
 	text = hour..":"..minute.." "..part;
 	--text = hour..":"..minute;
 	cairo_text_extents(cr,text,extents)
-	cairo_move_to(cr, centerx-10 - extents.width/2,  height/8);
+	cairo_move_to(cr, centerx-10 - extents.width/2,  height/8 + 45);
 	cairo_show_text(cr, text);
 	local time_height = height/6;
 
@@ -941,7 +941,7 @@ end
 	cairo_set_font_size(cr, item_font_size)
 	text = day.. "  "..month.."  "..year;
 	cairo_text_extents(cr,text,extents)
-	cairo_move_to(cr, centerx - extents.width/2,  time_height + height/30);
+	cairo_move_to(cr, centerx - extents.width/2,  time_height + height/10);
 	cairo_show_text(cr, text);
 
 	-- SPOTIFY ------------------------------------------------------------ SPOTIFY ----------------------------------------------------------------------------
@@ -1003,7 +1003,7 @@ end
 	cairo_set_font_size(cr, item_font_size)
 	text = "Krunal Patil"
 	cairo_text_extents(cr,text,extents)
-	cairo_move_to(cr, centerx - extents.width/2,  height/1.15);
+	cairo_move_to(cr, centerx - extents.width/2,  height/1.10);
 	cairo_show_text(cr, text);
 
 

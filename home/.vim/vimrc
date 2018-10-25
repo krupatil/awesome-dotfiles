@@ -188,8 +188,12 @@
 " Set colorscheme
 " Note this must be done after plugins are sourced, otherwise the colorscheme
 " plugin won't have been loaded
-colorscheme spacegray
-" colorscheme solarized
+" colorscheme github
+" colorscheme spacegray
+" syntax enable
+set background=dark
+colorscheme solarized
+"colorscheme base16-default-dark
 
 " Janah colorscheme
 "autocmd ColorScheme janah highlight Normal ctermbg=235
@@ -201,7 +205,3 @@ colorscheme spacegray
 
 " Remove ~ from vimsplit border
 hi EndOfBuffer   ctermfg=bg
-
-set tabstop=2                                                                                                                                       
-set shiftwidth=2            " numbers of spaces to (auto)indent                                                                                     
-set expandtab                                                 

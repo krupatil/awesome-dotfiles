@@ -222,7 +222,8 @@ Plug 'vim-scripts/bufkill.vim' "{{{
 
 " =====[Theming]=====
 Plug 'ajh17/Spacegray.vim'
-
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 
 " =====[tmux]=====
 Plug 'tmux-plugins/vim-tmux'
