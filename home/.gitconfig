@@ -30,7 +30,7 @@
 [rebase]
 	autosquash = true
 [credential]
-	helper = cache --timeout=31536000
+	helper = cache --timeout=9999999
 [difftool]
 	prompt = false
 	bc3 = trustExitCode
@@ -38,3 +38,5 @@
 [mergetool]
 	bc3 = trustExitCode
 	bc = trustExitCode
+[alias]
+	update = !git pull && git submodule update --init --recursive

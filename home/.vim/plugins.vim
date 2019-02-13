@@ -168,7 +168,7 @@ let g:syntastic_python_flake8_post_args = '--ignore=E501'
 "    let g:UltiSnipsExpandTrigger="<tab>"
 "endif "}}}
 Plug 'dantler/vim-alternate'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-signify' "{{{
   let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
 "}}}

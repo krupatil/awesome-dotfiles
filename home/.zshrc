@@ -1,5 +1,8 @@
 # Directory for my customizations
 ZSH=$HOME/.zsh
+ENABLE_OLD_CONFIG=false
+
+if $ENABLE_OLD_CONFIG; then
 ADOTDIR=$HOME/.antigen
 
 # Download and install antigen if it doesn't exist
@@ -24,7 +27,7 @@ antigen bundles <<EOBUNDLES
     z
     supercrabtree/k
 
-    # github plugins
+   # github plugins
     lukechilds/zsh-nvm
     radhermit/gentoo-zsh-completions
     zsh-users/zsh-completions
@@ -32,6 +35,7 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 antigen apply
 source "$ZSH/themes/krupatil.zsh-theme"
+fi
 
 # Paths to add to PATH. I should be able to put these in .zshenv, but every
 # distro seems intent on breaking this with their own settings that clobber
@@ -45,6 +49,7 @@ path=(
     "$HOME/Library/python/3.5/bin"
 
     # Ruby
+    "$HOME/.rbenv/bin"
     "$HOME/.gem/ruby/1.8/bin"
     "$HOME/.gem/ruby/1.9.1/bin"
     "$HOME/.gem/ruby/2.0.0/bin"
@@ -52,15 +57,6 @@ path=(
     "$HOME/.gem/ruby/2.2.0/bin"
     "$HOME/.gem/ruby/2.3.0/bin"
     "$HOME/.rvm/bin"
-
-    # Android SDK binaries
-    "$HOME/androidsdk/platform-tools"
-    "$HOME/androidsdk/tools"
-
-    # Microchip compiler binaries
-    "$HOME/local/microchip/xc8/bin"
-    "$HOME/local/microchip/xc16/bin"
-    "$HOME/local/microchip/xc32/bin"
 
     # Homebrew binaries
     "/usr/local/bin"
@@ -71,9 +67,6 @@ path=(
 
     # pyenv binaries
     "$HOME/.pyenv/bin"
-
-    # VSCode binaries
-    '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
 
     # Include system paths
     $path
@@ -89,27 +82,6 @@ export LANG=en_US.UTF-8
 # Use local libraries if available
 [[ -d "$HOME/local/lib" ]] && export LD_LIBRARY_PATH="$HOME/local/lib:$LD_LIBRARY_PATH"
 
-# If Dropbox folder is in expected locations export env var
-[[ -d "$HOME/Dropbox" ]] && export DROPBOX='~/Dropbox'
-
-# Source local tokens/keys if present
-[[ -f "$HOME/.zsh/tokens.zsh" ]] && source "$HOME/.zsh/tokens.zsh"
-
-# Enable pyenv, if it is installed
-if whence -p pyenv >/dev/null; then
-    export PYTHON_CONFIGURE_OPTS="--enable-framework"
-    eval "$(pyenv init -)"
-fi
-
-# Enable rvm, if it is installed
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
-    source "$HOME/.rvm/scripts/rvm"
-fi
-
-# Point Racer at the Rust src distribution
-command -v rustc >/dev/null 2>&1 && \
-    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-
 # Options
 setopt autocontinue
 setopt correct
@@ -119,18 +91,13 @@ setopt noautopushd
 # Enable SSH agent forwarding
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 
-# Source my "plugin" scripts
-# Aliases
-source $HOME/.scripts/alias
-
 # Extra functions/env
 source $HOME/.scripts/my_env
 
 # Start tmux session
 source $HOME/.scripts/terminal-start-tmux
 
-source "$ZSH/dircolors.zsh"
-source "$ZSH/homesick.zsh"
+#source ~/.zsh/dircolors.zsh
 
 # Clean up paths, removing duplicates and non-existant directories
 source $HOME/.zsh/prune-paths.zsh
@@ -142,6 +109,27 @@ zstyle ':completion:*' matcher-list 'r:|=*' '+ r:|[._-]=* l:|=*'
 if [ "$TERM" = "xterm" ]; then
     export TERM=xterm-256color
 fi
+
+# Path to your oh-my-zsh installation.
+export ZSH="/home/krupatil/.oh-my-zsh"
+
+# Select Powerline Theme
+ZSH_THEME="powerlevel9k/powerlevel9k"
+source ~/.zsh/powerlevel.zsh
+
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+plugins=(git git-extras gem bundler ruby rvm rails sudo sublime colorize history history-substring-search last-working-dir compleat zsh-completions zsh-history-substring-search zsh-autosuggestions zsh-syntax-highlighting zsh-syntax-highlighting-filetypes warhol)
+autoload -U compinit && compinit
+
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+source ~/.zsh/archey.zsh
+source ~/.zsh/history.zsh
+source ~/.zsh/alias.zsh
+source ~/.zsh/man-pages.zsh
+source $(dirname $(gem which colorls))/tab_complete.sh
+source $ZSH/oh-my-zsh.sh
+
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1

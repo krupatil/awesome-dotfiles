@@ -169,6 +169,7 @@ add_if_exists PATH \
 
 # Local binaries
 add_if_exists PATH \
+    "/usr/local/bin" \
     "$HOME/local/bin" \
     "~/.local/bin" \
     "$HOME/.scripts"
@@ -212,3 +213,4 @@ add_if_exists PATH \
 
 unset add_if_exists
 
+eval "$(rbenv init -)"

@@ -17,6 +17,7 @@
   filetype indent on
   set tabstop=2
   set shiftwidth=2            " numbers of spaces to (auto)indent
+  set softtabstop=2           " number of colums for a TAB
   set expandtab
   set smartindent             " smart autoindenting when starting a new line
   set cindent                 " cindent
