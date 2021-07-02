@@ -22,7 +22,7 @@ case $CMD in
         sudo apt-get -y install lm-sensors hddtemp
         sudo apt-get -y install xdotool
         # Needed by https://github.com/JamshedVesuna/vim-markdown-preview
-        pip3 install grip;;
+        pip3 install --user grip;;
     "remove")
         sudo apt-get -y remove build-essential
         sudo apt-get -y remove automake

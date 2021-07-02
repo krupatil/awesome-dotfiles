@@ -13,15 +13,15 @@
   set smartcase          " ...unless I specify a capital letter
   set hlsearch           " Highlight search results
   set showmatch          " Highlight matching character briefly
-  filetype plugin indent on
-  filetype indent on
+  "filetype plugin indent on
+  "filetype indent on
   set tabstop=2
   set shiftwidth=2            " numbers of spaces to (auto)indent
   set softtabstop=2           " number of colums for a TAB
   set expandtab
-  set smartindent             " smart autoindenting when starting a new line
-  set cindent                 " cindent
-  set autoindent              " always set autoindenting on
+  "set smartindent             " smart autoindenting when starting a new line
+  "set cindent                 " cindent
+  "set autoindent              " always set autoindenting on
 
   " When doing tab completion, give the following files lower priority.
   set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo,.lock
@@ -101,10 +101,39 @@
       autocmd BufEnter  *       set list
     augroup END
 
+    augroup vertical_split
+      autocmd!
+      " When a Haskell file is read or the text changes in normal or insert mode,
+      " draw a column marking the maximum line length if a line exceeds this length
+      autocmd BufRead,TextChanged,TextChangedI * call ShowColumnIfLineTooLong(80)
+    augroup END
+
+    " Color the column marking the lengthLimit when the longest line in the file
+    " exceeds the lengthLimit
+    function! ShowColumnIfLineTooLong(lengthLimit)
+      " See https://stackoverflow.com/questions/2075276/longest-line-in-vim#2982789
+      let maxLineLength = max(map(getline(1,'$'), 'len(v:val)'))
+
+      if maxLineLength > a:lengthLimit
+        highlight ColorColumn ctermbg=red guibg=red
+        " Draw the vertical line at the first letter that exceeds the limit
+        execute "set colorcolumn=" . (a:lengthLimit + 1)
+      else
+        set colorcolumn=""
+      endif
+    endfunction
+
+    augroup DisableTuxStatus
+      autocmd!
+      "When vim is started, turn-off TMux status bar."
+      autocmd VimEnter * :silent !{tmux set -g status off}
+    autocmd VimLeave * :silent !{tmux set -g status on}
+    augroup END
+
   endif
 "}}}
 
-" Mappings {{{
+"Mappings {{{
   " Add a new line before/after
   nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
   nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
@@ -189,20 +218,13 @@
 " Set colorscheme
 " Note this must be done after plugins are sourced, otherwise the colorscheme
 " plugin won't have been loaded
-" colorscheme github
-" colorscheme spacegray
-" syntax enable
+"
+" set termguicolors
+syntax enable
 set background=dark
 colorscheme solarized
-"colorscheme base16-default-dark
-
-" Janah colorscheme
-"autocmd ColorScheme janah highlight Normal ctermbg=235
-"colorscheme janah
-"
-" Change split border
-" highlight VertSplit ctermbg=NONE
-" highlight VertSplit ctermfg=NONE
-
-" Remove ~ from vimsplit border
-hi EndOfBuffer   ctermfg=bg
+" colorscheme github
+" colorscheme spacegray
+" colorscheme vim-open-color
+" colorscheme solarized8
+" colorscheme base16-default-dark
